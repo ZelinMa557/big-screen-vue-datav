@@ -12,16 +12,20 @@ import 'vue-awesome/icons/chart-area.js';
 import 'vue-awesome/icons/chart-pie.js';
 import 'vue-awesome/icons/chart-line.js';
 import 'vue-awesome/icons/align-left.js';
+import axios from "axios";
 
 //引入echart
 //4.x 引用方式
 import echarts from 'echarts'
+import Config from '../static/config.json'
 //5.x 引用方式为按需引用
 //希望使用5.x版本的话,需要在package.json中更新版本号,并切换引用方式
 //import * as echarts from 'echarts'
 Vue.prototype.$echarts = echarts
+Vue.prototype.$http = axios 
 Vue.config.productionTip = false;
-
+axios.defaults.baseURL = "http://" + Config.server_ip + ":" + Config.server_port
+axios.defaults.timeout = Config.timeout
 // 全局注册
 Vue.component('icon', Icon);
 Vue.use(dataV);

@@ -1,0 +1,29 @@
+{
+    "server_ip" : "127.0.0.1",
+    "server_port" : "8080",
+    "timeout" : 1000,
+    "refresh_interval" : 1000,
+    "big_screen_title" : "无人机路线图",
+    "points" : [
+        { "name": "浙江", "value": [120.152575, 30.266619], "itemStyle": { "color": "#00EEFF" } } ,
+        { "name": "北京", "value": [116.407387, 39.904179], "itemStyle": { "color": "#00EEFF" } }
+    ],
+    "lines" : [
+        { "coords": [[116.407387, 39.904179], [120.152575, 30.266619]] }
+    ],
+    "middle_screen_tasks" : [],
+    "small_screen_tasks" : [
+        {
+            "name" : "热点1",
+            "api" : ""
+        },
+        {
+            "name" : "热点2",
+            "api" : ""
+        },
+        {
+            "name" : "热点3",
+            "api" : ""
+        }
+    ]
+}
