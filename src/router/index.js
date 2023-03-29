@@ -14,6 +14,11 @@ const routes = [
     name : "small",
     component: () => import('../views/SmallScreen.vue')
   },
+  {
+    path : "/maptest",
+    name : "maptest",
+    component: () => import('../components/MapTest.vue')
+  }
 ]
 const router = new VueRouter({
   mode: 'history',

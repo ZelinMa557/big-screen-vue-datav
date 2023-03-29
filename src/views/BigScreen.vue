@@ -8,7 +8,7 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
             <div class="title">
-              <span class="title-text">大数据可视化平台</span>
+              <span class="title-text">{{this.title}}</span>
               <dv-decoration-6
                 class="dv-dec-6"
                 :reverse="true"
@@ -32,12 +32,12 @@
               <span class="text">数据分析1</span>
             </div>
             <div class="react-left ml-3">
-              <span class="text">数据分析2</span>
+              <span class="text">作战地图</span>
             </div>
           </div>
           <div class="d-flex aside-width">
             <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">vue-big-screen</span>
+              <span class="text fw-b">数据分析2</span>
             </div>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
@@ -47,11 +47,21 @@
             </div>
           </div>
         </div>
-
         <div class="body-box">
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
+              <!-- <dv-border-box-13> -->
+                <LeftTop/>
+              <!-- </dv-border-box-13> -->
+                <LeftBottom/>
+            </div>
+            <div>
+              <dv-border-box-12>
+                <MapTest/>
+              </dv-border-box-12>
+            </div>
+            <!-- <div>
               <dv-border-box-12>
                 <centerLeft1 />
               </dv-border-box-12>
@@ -60,31 +70,31 @@
               <dv-border-box-12>
                 <centerLeft2 />
               </dv-border-box-12>
-            </div>
+            </div> -->
             <!-- 中间 -->
-            <div>
+            <!-- <div>
               <center />
-            </div>
+            </div> -->
             <!-- 中间 -->
-            <div>
+            <!-- <div>
               <centerRight2 />
             </div>
             <div>
               <dv-border-box-13>
                 <centerRight1 />
               </dv-border-box-13>
-            </div>
+            </div> -->
           </div>
 
           <!-- 第四行数据 -->
-          <div class="bottom-box">
-            <dv-border-box-13>
+          <!-- <div class="bottom-box"> -->
+            <!-- <dv-border-box-13>
               <bottomLeft />
             </dv-border-box-13>
             <dv-border-box-12>
               <bottomRight />
-            </dv-border-box-12>
-          </div>
+            </dv-border-box-12> -->
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -97,11 +107,13 @@ import { formatTime } from '../utils/index.js'
 import centerLeft1 from './centerLeft1'
 import centerLeft2 from './centerLeft2'
 import centerRight1 from './centerRight1'
-import centerRight2 from './centerRight2'
+import LeftTop from "./LeftTop.vue";
+import LeftBottom from "./LeftBottom.vue";
 import center from './center'
 import bottomLeft from './bottomLeft'
 import bottomRight from './bottomRight'
-
+import MapTest from "../components/MapTest.vue";
+import Config from "../../static/config.json"
 export default {
   mixins: [ drawMixin ],
   data() {
@@ -112,18 +124,21 @@ export default {
       dateYear: null,
       dateWeek: null,
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-      decorationColor: ['#568aea', '#000000']
+      decorationColor: ['#568aea', '#000000'],
+      title : Config.big_screen_title
     }
   },
   components: {
     centerLeft1,
     centerLeft2,
     centerRight1,
-    centerRight2,
     center,
     bottomLeft,
-    bottomRight
-  },
+    bottomRight,
+    MapTest,
+    LeftTop,
+    LeftBottom
+},
   mounted() {
     this.timeFn()
     this.cancelLoading()
