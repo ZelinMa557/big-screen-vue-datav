@@ -2,7 +2,7 @@
     <div class="content">
       <div
         ref="charts"
-        style="width: 1000px; height: 1020px; margin:0 auto"
+        style="width: 1100px; height: 1020px; margin:0 auto"
       ></div>
       <!-- <span>浙江省地图</span> -->
     </div>
@@ -11,7 +11,7 @@
   <script>
   import * as echarts from 'echarts'
   import Config from '../../static/config.json'
-  import zhejiang from '@/assets/zhejiang.json'
+  import zhejiang from '@/assets/northwest.json'
   export default {
     data () {
       return {
@@ -37,7 +37,7 @@
           backgroundColor: '#0E2152',// 背景颜色
           title : {
             show : true,
-            text : "浙江省地图",
+            text : "西北部分省市地图",
             x : 'left',
             y : 'top',
             textStyle: { "fontSize": 35,"fontWeight": "bolder","color": "white"},

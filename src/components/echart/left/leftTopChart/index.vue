@@ -52,10 +52,10 @@ export default {
         ],
         legend : {
           orient : 'vertcal',
-          x : 'right',
-          y : 'center',
-          itemWidth : 40,
-          itemHeight : 40,
+          x : 'left',
+          y : 'bottom',
+          itemWidth : 30,
+          itemHeight : 30,
           textStyle : {
             color : 'white'
           }
