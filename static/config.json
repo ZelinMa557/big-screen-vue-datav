@@ -26,19 +26,54 @@
         { "coords": [[119.649506, 29.089524], [121.56, 29.86]] },
         { "coords": [[119.649506, 29.089524], [121.42, 28.65]] }
     ],
-    "middle_screen_tasks" : [],
+    "picture_type" : "jpeg",
+    "middle_screen_tasks" : [
+        {
+            "name" : "飞机1",
+            "api" : "",
+            "default_img" : "https://img0.baidu.com/it/u=4245353801,1857885237&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+        },
+        {
+            "name" : "飞机2",
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机3",
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=394"
+        },
+        {
+            "name" : "飞机4",
+            "api" : "",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机5",
+            "api" : "",
+            "default_img" : "https://img0.baidu.com/it/u=4245353801,1857885237&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+        },
+        {
+            "name" : "飞机6",
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        }
+    ],
     "small_screen_tasks" : [
         {
             "name" : "热点1",
-            "api" : ""
+            "api" : "",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         },
         {
             "name" : "热点2",
-            "api" : ""
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         },
         {
             "name" : "热点3",
-            "api" : ""
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=394"
         }
     ]
 }

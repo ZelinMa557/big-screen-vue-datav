@@ -1,5 +1,6 @@
 <template>
   <div id="centerRight1">
+  <dv-border-box-13>
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
@@ -13,6 +14,7 @@
         <dv-scroll-board class="dv-scr-board" :config="config" />
       </div>
     </div>
+    </dv-border-box-13>
   </div>
 </template>
 
@@ -49,8 +51,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$box-height: 410px;
-$box-width: 300px;
+$box-height: 500px;
+$box-width: 400px;
 #centerRight1 {
   padding: 16px;
   padding-top: 20px;

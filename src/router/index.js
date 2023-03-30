@@ -15,6 +15,11 @@ const routes = [
     component: () => import('../views/SmallScreen.vue')
   },
   {
+    path : "/mid",
+    name : "mid",
+    component: () => import('../views/MiddleScreen.vue')
+  },
+  {
     path : "/maptest",
     name : "maptest",
     component: () => import('../components/MapTest.vue')

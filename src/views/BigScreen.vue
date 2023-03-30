@@ -51,9 +51,7 @@
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
-              <!-- <dv-border-box-13> -->
                 <LeftTop/>
-              <!-- </dv-border-box-13> -->
                 <LeftBottom/>
             </div>
             <div>
@@ -61,40 +59,12 @@
                 <MapTest/>
               </dv-border-box-12>
             </div>
-            <!-- <div>
-              <dv-border-box-12>
-                <centerLeft1 />
-              </dv-border-box-12>
-            </div>
             <div>
-              <dv-border-box-12>
-                <centerLeft2 />
-              </dv-border-box-12>
-            </div> -->
-            <!-- 中间 -->
-            <!-- <div>
-              <center />
-            </div> -->
-            <!-- 中间 -->
-            <!-- <div>
-              <centerRight2 />
+              
+                <centerRight1/>
+                <center/>
             </div>
-            <div>
-              <dv-border-box-13>
-                <centerRight1 />
-              </dv-border-box-13>
-            </div> -->
           </div>
-
-          <!-- 第四行数据 -->
-          <!-- <div class="bottom-box"> -->
-            <!-- <dv-border-box-13>
-              <bottomLeft />
-            </dv-border-box-13>
-            <dv-border-box-12>
-              <bottomRight />
-            </dv-border-box-12> -->
-          <!-- </div> -->
         </div>
       </div>
     </div>
