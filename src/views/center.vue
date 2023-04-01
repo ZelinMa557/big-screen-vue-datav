@@ -43,7 +43,7 @@
 
 <script>
 import CenterChart from '@/components/echart/center/centerChartRate'
-
+import Config from '../../static/config.json'
 export default {
   data() {
     return {
@@ -51,7 +51,7 @@ export default {
         {
           title: '累计发现坦克',
           number: {
-            number: [124],
+            number: [Config.tank_detected],
             toFixed: 0,
             textAlign: 'left',
             content: '{nt}',
@@ -63,7 +63,7 @@ export default {
         {
           title: '累计发现飞机',
           number: {
-            number: [185],
+            number: [Config.plane_detected],
             toFixed: 0,
             textAlign: 'left',
             content: '{nt}',
@@ -75,7 +75,7 @@ export default {
         {
           title: '任务完成数量',
           number: {
-            number: [14],
+            number: [Config.finished_task],
             toFixed: 0,
             textAlign: 'left',
             content: '{nt}',
@@ -87,7 +87,7 @@ export default {
         {
           title: '任务总数量',
           number: {
-            number: [20],
+            number: [Config.total_task],
             toFixed: 0,
             textAlign: 'left',
             content: '{nt}',
@@ -99,7 +99,7 @@ export default {
         {
           title: '正在进行',
           number: {
-            number: [4],
+            number: [Config.ongoing_task],
             toFixed: 0,
             textAlign: 'left',
             content: '{nt}',
@@ -165,7 +165,7 @@ export default {
       rate: [
         {
           id: 'centerRate1',
-          tips: 60,
+          tips: Config.pass_rate,
           colorData: {
             textStyle: '#3fc0fb',
             series: {
@@ -179,7 +179,7 @@ export default {
         },
         {
           id: 'centerRate2',
-          tips: 40,
+          tips: Config.qualified_rate,
           colorData: {
             textStyle: '#67e0e3',
             series: {
