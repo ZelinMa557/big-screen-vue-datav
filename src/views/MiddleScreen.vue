@@ -64,6 +64,7 @@ export default {
 #index {
   height: 100%;
   width: 100%;
+  background-color: white;
   .null {
     height: 2%;
     width: 100%;
