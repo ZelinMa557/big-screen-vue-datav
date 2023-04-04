@@ -54,7 +54,7 @@
                 <LeftTop/>
                 <LeftBottom/>
             </div>
-            <div>
+            <div style="width: 1100px; height: 1020px; margin:0 auto">
               <dv-border-box-12>
                 <MapTest/>
               </dv-border-box-12>
