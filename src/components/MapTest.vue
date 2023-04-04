@@ -2,7 +2,7 @@
     <div class="content">
       <div
         ref="charts"
-        style="width: 2100px; height: 2020px; margin:0 auto"
+        style="width: 1100px; height: 1020px; margin:0 auto"
       ></div>
       <!-- <span>浙江省地图</span> -->
     </div>
@@ -10,6 +10,7 @@
 
 <script>
 import * as echarts from 'echarts'
+import 'echarts/extension/bmap/bmap'
 import Config from '../../static/config.json'
 import zhejiang from '@/assets/northwest.json'
 export default {
@@ -44,49 +45,186 @@ export default {
           left : 10,
           top : 10
           },
-        geo: {// 地图配置
-          map: 'zhejiang',
-          label: { // 图形上的文本标签
-            normal: {// 通常状态下的样式
-              show: false,
-              textStyle: {
-                color: '#fff'
-              }
-            },
-            emphasis: {// 鼠标放上去高亮的样式
-              textStyle: {
-                color: '#fff'
-              }
-            }
-          },
-          itemStyle: {// 地图区域的样式设置
-            normal: { // 通常状态下的样式
-              borderColor: '#5089EC',
-              borderWidth: 0.1,
-              areaColor: { //地图区域的颜色
-                type: 'radial', // 径向渐变
-                x: 0.5, // 圆心
-                y: 0.5,// 圆心
-                r: 0.8,// 半径
-                colorStops: [
-                  { // 0% 处的颜色
-                    offset: 0,
-                    color: 'rgba(0, 102, 154, 0)'
-                  },
-                  { // 100% 处的颜色
-                    offset: 1,
-                    color: 'rgba(0, 102, 154, .4)'
-                  }
-                ]
-              }
-            },
-            // 鼠标放上去高亮的样式
-            emphasis: {
-              areaColor: '#2386AD',
-              borderWidth: 0
-            }
-          }
-        },
+        // geo: {// 地图配置
+        //   map: 'zhejiang',
+        //   label: { // 图形上的文本标签
+        //     normal: {// 通常状态下的样式
+        //       show: false,
+        //       textStyle: {
+        //         color: '#fff'
+        //       }
+        //     },
+        //     emphasis: {// 鼠标放上去高亮的样式
+        //       textStyle: {
+        //         color: '#fff'
+        //       }
+        //     }
+        //   },
+        //   itemStyle: {// 地图区域的样式设置
+        //     normal: { // 通常状态下的样式
+        //       borderColor: '#5089EC',
+        //       borderWidth: 0.1,
+        //       areaColor: { //地图区域的颜色
+        //         type: 'radial', // 径向渐变
+        //         x: 0.5, // 圆心
+        //         y: 0.5,// 圆心
+        //         r: 0.8,// 半径
+        //         colorStops: [
+        //           { // 0% 处的颜色
+        //             offset: 0,
+        //             color: 'rgba(0, 102, 154, 0)'
+        //           },
+        //           { // 100% 处的颜色
+        //             offset: 1,
+        //             color: 'rgba(0, 102, 154, .4)'
+        //           }
+        //         ]
+        //       }
+        //     },
+        //     // 鼠标放上去高亮的样式
+        //     emphasis: {
+        //       areaColor: '#2386AD',
+        //       borderWidth: 0
+        //     }
+        //   }
+        // },
+        bmap: {
+					center: [104.114129, 37.550339],
+					zoom: 5,
+					roam: true,
+					mapStyle: {
+						styleJson: [
+								{
+									"featureType": "water",
+									"elementType": "all",
+									"stylers": {
+										"color": "#044161"
+									}
+								},
+								{
+									"featureType": "land",
+									"elementType": "all",
+									"stylers": {
+										"color": "#004981"
+									}
+								},
+								{
+									"featureType": "boundary",
+									"elementType": "geometry",
+									"stylers": {
+										"color": "#064f85"
+									}
+								},
+								{
+									"featureType": "railway",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "highway",
+									"elementType": "geometry",
+									"stylers": {
+										"color": "#004981"
+									}
+								},
+								{
+									"featureType": "highway",
+									"elementType": "geometry.fill",
+									"stylers": {
+										"color": "#005b96",
+										"lightness": 1
+									}
+								},
+								{
+									"featureType": "highway",
+									"elementType": "labels",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "arterial",
+									"elementType": "geometry",
+									"stylers": {
+										"color": "#004981"
+									}
+								},
+								{
+									"featureType": "arterial",
+									"elementType": "geometry.fill",
+									"stylers": {
+										"color": "#00508b"
+									}
+								},
+								{
+									"featureType": "poi",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "green",
+									"elementType": "all",
+									"stylers": {
+										"color": "#056197",
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "subway",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "manmade",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "local",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "arterial",
+									"elementType": "labels",
+									"stylers": {
+										"visibility": "off"
+									}
+								},
+								{
+									"featureType": "boundary",
+									"elementType": "geometry.fill",
+									"stylers": {
+										"color": "#029fd4"
+									}
+								},
+								{
+									"featureType": "building",
+									"elementType": "all",
+									"stylers": {
+										"color": "#1a5787"
+									}
+								},
+								{
+									"featureType": "label",
+									"elementType": "all",
+									"stylers": {
+										"visibility": "off"
+									}
+								}
+						]
+					}
+				},
         series: [
           { // 散点系列数据
             type: 'effectScatter',// 带有涟漪特效动画的散点（气泡）图

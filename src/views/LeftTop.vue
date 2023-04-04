@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 #centerRight2 {
   $box-height: 610px;
-  $box-width: 400px;
+  $box-width: 300px;
   padding: 5px;
   height: $box-height;
   width: $box-width;
