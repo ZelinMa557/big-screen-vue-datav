@@ -1,5 +1,7 @@
 <template>
-    <img v-bind:src="imgsrc" v-bind:width="width" v-bind:height="height"/>
+    <div v-bind:style="{'height': height + 'px', 'width' : width + 'px'}">
+        <img v-bind:src="imgsrc" width="100%"/>
+    </div>
 </template>
 
 <script>

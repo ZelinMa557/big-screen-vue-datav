@@ -1,43 +1,42 @@
 <template>
   <div id="center">
     <dv-border-box-13>
-    <div class="down">
-      <div class="percent">
-        <div class="item bg-color-black">
-          <span>今日任务通过率</span>
-          <CenterChart
-            :id="rate[0].id"
-            :tips="rate[0].tips"
-            :colorObj="rate[0].colorData"
-          />
-        </div>
-        <div class="item bg-color-black">
-          <span>今日任务达标率</span>
-          <CenterChart
-            :id="rate[1].id"
-            :tips="rate[1].tips"
-            :colorObj="rate[1].colorData"
-          />
-        </div>
-        
-      </div>
-    </div>
-    <div class="up">
-      <div
-        class="bg-color-black item"
-        v-for="item in titleItem"
-        :key="item.title"
-      >
-        <p class="ml-3 colorBlue fw-b fs-xl">{{ item.title }}</p>
-        <div>
-          <dv-digital-flop
-            class="dv-dig-flop ml-1 mt-2 pl-3"
-            :config="item.number"
-          />
+      <div class="down">
+        <div class="percent">
+          <div class="item bg-color-black">
+            <span>今日任务通过率</span>
+            <CenterChart
+              :id="rate[0].id"
+              :tips="rate[0].tips"
+              :colorObj="rate[0].colorData"
+            />
+          </div>
+          <div class="item bg-color-black">
+            <span>今日任务达标率</span>
+            <CenterChart
+              :id="rate[1].id"
+              :tips="rate[1].tips"
+              :colorObj="rate[1].colorData"
+            />
+          </div>  
         </div>
       </div>
-    </div>
-  </dv-border-box-13>
+      <div class="up">
+        <div
+          class="bg-color-black item"
+          v-for="item in titleItem"
+          :key="item.title"
+        >
+          <p class="ml-3 colorBlue fw-b fs-xl">{{ item.title }}</p>
+          <div>
+            <dv-digital-flop
+              class="dv-dig-flop ml-1 mt-2 pl-3"
+              :config="item.number"
+            />
+          </div>
+        </div>
+      </div>
+    </dv-border-box-13>
   </div>
 </template>
 
@@ -109,52 +108,6 @@ export default {
           }
         }
       ],
-      ranking: {
-        data: [
-          {
-            name: '周口',
-            value: 55
-          },
-          {
-            name: '南阳',
-            value: 120
-          },
-          {
-            name: '西峡',
-            value: 78
-          },
-          {
-            name: '驻马店',
-            value: 66
-          },
-          {
-            name: '新乡',
-            value: 80
-          },
-          {
-            name: '新乡2',
-            value: 80
-          },
-          {
-            name: '新乡3',
-            value: 80
-          },
-          {
-            name: '新乡4',
-            value: 80
-          },
-          {
-            name: '新乡5',
-            value: 80
-          },
-          {
-            name: '新乡6',
-            value: 80
-          }
-        ],
-        carousel: 'single',
-        unit: '人'
-      },
       water: {
         data: [24, 45],
         shape: 'roundRect',
