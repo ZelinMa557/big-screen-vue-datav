@@ -2,7 +2,7 @@
     <div class="content">
       <div
         ref="charts"
-        style="width: 1100px; height: 1020px; margin:0 auto"
+        style="width: 1300px; height: 1020px; margin:0 auto"
       ></div>
       <!-- <span>浙江省地图</span> -->
     </div>
@@ -27,9 +27,9 @@ export default {
     this.points = Config.points
     this.linesData = Config.lines
     this.initCharts()
-    this.timer = setInterval(() => {
-          setTimeout(this.initCharts, 0)
-    }, Config.refresh_interval*10)
+    // this.timer = setInterval(() => {
+    //       setTimeout(this.initCharts, 0)
+    // }, Config.refresh_interval*10)
   },
   methods: {
     initCharts () {
@@ -89,149 +89,20 @@ export default {
         //   }
         // },
         bmap: {
-					center: [104.114129, 37.550339],
-					zoom: 5,
+					center: [87.623027,43.829685],
+					zoom: 6,
 					roam: true,
 					mapStyle: {
-						styleJson: [
-								{
-									"featureType": "water",
-									"elementType": "all",
-									"stylers": {
-										"color": "#044161"
-									}
-								},
-								{
-									"featureType": "land",
-									"elementType": "all",
-									"stylers": {
-										"color": "#004981"
-									}
-								},
-								{
-									"featureType": "boundary",
-									"elementType": "geometry",
-									"stylers": {
-										"color": "#064f85"
-									}
-								},
-								{
-									"featureType": "railway",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "highway",
-									"elementType": "geometry",
-									"stylers": {
-										"color": "#004981"
-									}
-								},
-								{
-									"featureType": "highway",
-									"elementType": "geometry.fill",
-									"stylers": {
-										"color": "#005b96",
-										"lightness": 1
-									}
-								},
-								{
-									"featureType": "highway",
-									"elementType": "labels",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "arterial",
-									"elementType": "geometry",
-									"stylers": {
-										"color": "#004981"
-									}
-								},
-								{
-									"featureType": "arterial",
-									"elementType": "geometry.fill",
-									"stylers": {
-										"color": "#00508b"
-									}
-								},
-								{
-									"featureType": "poi",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "green",
-									"elementType": "all",
-									"stylers": {
-										"color": "#056197",
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "subway",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "manmade",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "local",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "arterial",
-									"elementType": "labels",
-									"stylers": {
-										"visibility": "off"
-									}
-								},
-								{
-									"featureType": "boundary",
-									"elementType": "geometry.fill",
-									"stylers": {
-										"color": "#029fd4"
-									}
-								},
-								{
-									"featureType": "building",
-									"elementType": "all",
-									"stylers": {
-										"color": "#1a5787"
-									}
-								},
-								{
-									"featureType": "label",
-									"elementType": "all",
-									"stylers": {
-										"visibility": "off"
-									}
-								}
-						]
+						
 					}
 				},
         series: [
           { // 散点系列数据
-            type: 'effectScatter',// 带有涟漪特效动画的散点（气泡）图
-            coordinateSystem: 'geo', //该系列使用的坐标系:地理坐标系
+            type: 'scatter',// 带有涟漪特效动画的散点（气泡）图
+            coordinateSystem: 'bmap', //该系列使用的坐标系:地理坐标系
             // 特效类型,目前只支持涟漪特效'ripple'，意为“涟漪”
             effectType: 'ripple',
-            // 配置何时显示特效。可选'render'和'emphasis' 。
+            // // 配置何时显示特效。可选'render'和'emphasis' 。
             showEffectOn: 'render',
             rippleEffect: { // 涟漪特效相关配置。
               period: 6, // 动画的周期，秒数。
@@ -275,7 +146,7 @@ export default {
         ]
       }
       // 地图注册，第一个参数的名字必须和option.geo.map一致
-      echarts.registerMap('zhejiang', zhejiang)
+      // echarts.registerMap('zhejiang', zhejiang)
       charts.setOption(option)
     }
   }
