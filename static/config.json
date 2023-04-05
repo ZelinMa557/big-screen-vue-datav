@@ -4,6 +4,7 @@
     "timeout" : 1000,
     "refresh_interval" : 1000,
     "big_screen_title" : "无人机路线图",
+    "center" : [91.35, 37.4],
     "points" : [
         { "name": "拉萨", "value": [91.137554,29.651469], "itemStyle": { "color": "red" } },
         { "name": "乌鲁木齐", "value": [87.623027,43.829685], "itemStyle": { "color": "red" } },

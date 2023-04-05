@@ -4,7 +4,6 @@
         ref="charts"
         style="width: 1300px; height: 1020px; margin:0 auto"
       ></div>
-      <!-- <span>浙江省地图</span> -->
     </div>
 </template>
 
@@ -35,16 +34,14 @@ export default {
     initCharts () {
       const charts = echarts.init(this.$refs['charts'])
       const option = {
-        backgroundColor: '#0E2152',// 背景颜色
         title : {
-          show : true,
-          text : "西北部分省市地图",
+          text : "西北地区地图",
           x : 'left',
           y : 'top',
-          textStyle: { "fontSize": 35,"fontWeight": "bolder","color": "white"},
+          textStyle: { "fontSize": 45,"fontWeight": "bolder","color": "black"},
           left : 10,
           top : 10
-          },
+        },
         // geo: {// 地图配置
         //   map: 'zhejiang',
         //   label: { // 图形上的文本标签
@@ -89,7 +86,7 @@ export default {
         //   }
         // },
         bmap: {
-					center: [87.623027,43.829685],
+					center: Config.center,
 					zoom: 6,
 					roam: true,
 					mapStyle: {
@@ -121,28 +118,28 @@ export default {
                   }
             }
           },
-          { // 线条系列数据
-            type: 'lines',
-            zlevel: 2,
-            symbol: ['none', 'arrow'], // 标记的图形: 箭头
-            symbolSize: 10, // 标记的大小
-            effect: { // 线条特效的配置
-              show: true,
-              period: 30, // 特效动画的时间，单位s
-              trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
-              symbol: this.planePath, // 特效图形的标记 可选'circle'等
-              symbolSize: 15// 特效标记的大小
-            },
-            lineStyle: { // 线条样式
-              normal: {
-                color: '#93EBF8',
-                width: 2.5, // 线条宽度
-                opacity: 0.6, // 尾迹线条透明度
-                curveness: 0.1// 尾迹线条曲直度
-              }
-            },
-            data: this.linesData
-          }
+          // { // 线条系列数据
+          //   type: 'lines',
+          //   zlevel: 2,
+          //   symbol: ['none', 'arrow'], // 标记的图形: 箭头
+          //   symbolSize: 10, // 标记的大小
+          //   effect: { // 线条特效的配置
+          //     show: true,
+          //     period: 30, // 特效动画的时间，单位s
+          //     trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
+          //     symbol: this.planePath, // 特效图形的标记 可选'circle'等
+          //     symbolSize: 15// 特效标记的大小
+          //   },
+          //   lineStyle: { // 线条样式
+          //     normal: {
+          //       color: '#93EBF8',
+          //       width: 2.5, // 线条宽度
+          //       opacity: 0.6, // 尾迹线条透明度
+          //       curveness: 0.1// 尾迹线条曲直度
+          //     }
+          //   },
+          //   data: this.linesData
+          // }
         ]
       }
       // 地图注册，第一个参数的名字必须和option.geo.map一致
