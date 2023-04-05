@@ -157,12 +157,14 @@ export default {
 #center {
   display: flex;
   flex-direction: column;
+  width: 300px;
+  margin-left: 20px;
   .down {
     padding: 6px 4px;
     padding-bottom: 0;
     width: 100%;
     display: flex;
-    height: 255px;
+    height: 185px;
     justify-content: space-between;
     .bg-color-black {
       border-radius: 5px;
@@ -198,6 +200,7 @@ export default {
   }
   .up {
     width: 100%;
+    padding: 6px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -205,7 +208,7 @@ export default {
       border-radius: 6px;
       padding-top: 8px;
       margin-top: 8px;
-      width: 32%;
+      width: 50%;
       height: 70px;
       .dv-dig-flop {
         width: 150px;

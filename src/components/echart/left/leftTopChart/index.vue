@@ -2,7 +2,7 @@
   <div>
     <div
         ref="charts"
-        style="width: 290px; height: 400px; margin:0 auto"
+        style="width: 290px; height: 300px; margin:0 auto"
     ></div>
   </div>
 </template>

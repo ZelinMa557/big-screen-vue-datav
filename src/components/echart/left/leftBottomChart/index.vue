@@ -12,7 +12,8 @@ import * as echarts from 'echarts'
 export default {
 data () {
     return {
-
+        speeds : [17, 35, 24, 19, 30, 28],
+        plans_names : ['飞机1', '飞机2', '飞机3', '飞机4', '飞机5', '飞机6']
     }
 },
 mounted() {
@@ -32,7 +33,7 @@ methods : {
           top : 10
         },
         xAxis : {
-            data : ['飞机1', '飞机2', '飞机3', '飞机4', '飞机5', '飞机6'],
+            data : this.plans_names,
             axisLabel: {
                 show: true,
                 textStyle: {
@@ -48,11 +49,17 @@ methods : {
         },
         series : [
         {
-            type : 'bar',
-            data : [17, 35, 24, 19, 30, 28],
+            type : 'pictorialBar',
+            symbol: 'rect',
+            data : this.speeds,
             barWidth: '20%',
             itemStyle : {
-                color : '#F02FC2'
+                // color : '#F02FC2'
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0, color: 'purple' },
+                    { offset: 0.7, color: '#2378f7' },
+                    { offset: 1, color: '#83bff6' }
+                ])
             }
         },
         ]

@@ -49,7 +49,10 @@ export default {
             name: '飞机6',
             value: 80
           }
-        ]
+        ],
+        colors : ['#2378f7','#2378f7','#2378f7','#2378f7','#2378f7','#2378f7'],
+        unit : 'KM/H',
+        showValue : true
       }
     }
   },
@@ -79,7 +82,7 @@ export default {
     overflow: hidden;
     .dv-cap-chart {
       width: 100%;
-      height: 160px;
+      height: 260px;
     }
   }
 }
