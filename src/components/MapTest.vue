@@ -126,7 +126,7 @@ export default {
             symbolSize: 10, // 标记的大小
             effect: { // 线条特效的配置
               show: true,
-              period: 30, // 特效动画的时间，单位s
+              period: 60, // 特效动画的时间，单位s
               trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
               symbol: this.planePath, // 特效图形的标记 可选'circle'等
               symbolSize: 25,// 特效标记的大小

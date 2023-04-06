@@ -6,7 +6,7 @@
           <span>
             <icon name="align-left" class="text-icon"></icon>
           </span>
-          <span class="fs-xl text mx-2">无人机飞行速度</span>
+          <span style="font-size:18;font-weight:'bolder';color:'white'">无人机飞行速度</span>
         </div>
         <div class="d-flex ai-center flex-column body-box">
           <dv-capsule-chart class="dv-cap-chart" :config="config" />

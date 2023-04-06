@@ -49,7 +49,6 @@ export default {
     }
   },
   watch: {
-    // tips 是会变更的数据，所以进行监听
     tips: {
       handler (newData) {
         this.options = {

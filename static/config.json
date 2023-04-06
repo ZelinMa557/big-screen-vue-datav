@@ -28,32 +28,47 @@
         {
             "name" : "飞机1",
             "api" : "",
-            "default_img" : "https://img0.baidu.com/it/u=4245353801,1857885237&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+            "default_img" : "https://img1.baidu.com/it/u=2951880093,1614873083&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机2",
             "api" : "",
-            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+            "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机3",
             "api" : "",
-            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=394"
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机4",
             "api" : "",
-            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+            "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机5",
             "api" : "",
-            "default_img" : "https://img0.baidu.com/it/u=4245353801,1857885237&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+            "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
         },
         {
             "name" : "飞机6",
             "api" : "",
-            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机7",
+            "api" : "",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机8",
+            "api" : "",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机9",
+            "api" : "",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         }
     ],
     "small_screen_tasks" : [
@@ -65,26 +80,26 @@
         {
             "name" : "热点2",
             "api" : "",
-            "default_img" : "https://img2.baidu.com/it/u=817400795,1315643219&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "热点3",
             "api" : "",
-            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=394"
+            "default_img" : "https://img2.baidu.com/it/u=2193226670,440333225&fm=253&fmt=auto&app=138&f=PNG?w=753&h=500"
         }
     ],
-    "ranking_header" : ["组件", "分支", "覆盖率"],
+    "ranking_header" : ["战机", "巡逻地", "覆盖率"],
     "ranking_data" : [
-        ["组件1", "dev-1", "<span  class='colorGrass'>↑75%</span>"],
-        ["组件2", "dev-2", "<span  class='colorRed'>↓33%</span>"],
-        ["组件3", "dev-3", "<span  class='colorGrass'>↑100%</span>"],
-        ["组件4", "rea-1", "<span  class='colorGrass'>↑94%</span>"],
-        ["组件5", "rea-2", "<span  class='colorGrass'>↑95%</span>"],
-        ["组件6", "fix-2", "<span  class='colorGrass'>↑63%</span>"],
-        ["组件7", "fix-4", "<span  class='colorGrass'>↑84%</span>"],
-        ["组件8", "fix-7", "<span  class='colorRed'>↓46%</span>"],
-        ["组件9", "dev-2", "<span  class='colorRed'>↓13%</span>"],
-        ["组件10", "dev-9", "<span  class='colorGrass'>↑76%</span>"]
+        ["战机1", "拉萨", "<span  class='colorGrass'>↑75%</span>"],
+        ["战机2", "乌鲁木齐", "<span  class='colorRed'>↓33%</span>"],
+        ["战机3", "理塘", "<span  class='colorGrass'>↑100%</span>"],
+        ["战机4", "阿拉善", "<span  class='colorGrass'>↑94%</span>"],
+        ["战机5", "玉树", "<span  class='colorGrass'>↑95%</span>"],
+        ["战机6", "昌都", "<span  class='colorGrass'>↑63%</span>"],
+        ["战机7", "林芝", "<span  class='colorGrass'>↑84%</span>"],
+        ["战机8", "山南", "<span  class='colorRed'>↓46%</span>"],
+        ["战机9", "日喀则", "<span  class='colorRed'>↓13%</span>"],
+        ["战机10", "哈密", "<span  class='colorGrass'>↑76%</span>"]
     ],
     "tank_detected" : 124,
     "plane_detected" : 185,
