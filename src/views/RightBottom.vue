@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import CenterChart from '@/components/echart/center/centerChartRate'
+import CenterChart from '@/components/echart/right/centerChartRate'
 import Config from '../../static/config.json'
 export default {
   data() {
