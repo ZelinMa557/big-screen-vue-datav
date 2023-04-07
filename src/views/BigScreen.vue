@@ -79,6 +79,7 @@ import LeftBottom from "./LeftBottom.vue";
 import RightBottom from './RightBottom'
 import MapTest from "../components/MapTest.vue";
 import Config from "../../static/config.json"
+import BackImg from "../assets/bg.png"
 export default {
   mixins: [ drawMixin ],
   data() {
@@ -90,7 +91,8 @@ export default {
       dateWeek: null,
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
       decorationColor: ['#568aea', '#000000'],
-      title : Config.big_screen_title
+      title : Config.big_screen_title,
+      bgsrc : BackImg
     }
   },
   components: {

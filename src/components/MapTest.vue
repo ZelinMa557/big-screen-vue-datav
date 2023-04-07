@@ -42,61 +42,61 @@ export default {
           left : 10,
           top : 10
         },
-        // geo: {// 地图配置
-        //   map: 'zhejiang',
-        //   label: { // 图形上的文本标签
-        //     normal: {// 通常状态下的样式
-        //       show: false,
-        //       textStyle: {
-        //         color: '#fff'
-        //       }
-        //     },
-        //     emphasis: {// 鼠标放上去高亮的样式
-        //       textStyle: {
-        //         color: '#fff'
-        //       }
-        //     }
-        //   },
-        //   itemStyle: {// 地图区域的样式设置
-        //     normal: { // 通常状态下的样式
-        //       borderColor: '#5089EC',
-        //       borderWidth: 0.1,
-        //       areaColor: { //地图区域的颜色
-        //         type: 'radial', // 径向渐变
-        //         x: 0.5, // 圆心
-        //         y: 0.5,// 圆心
-        //         r: 0.8,// 半径
-        //         colorStops: [
-        //           { // 0% 处的颜色
-        //             offset: 0,
-        //             color: 'rgba(0, 102, 154, 0)'
-        //           },
-        //           { // 100% 处的颜色
-        //             offset: 1,
-        //             color: 'rgba(0, 102, 154, .4)'
-        //           }
-        //         ]
-        //       }
-        //     },
-        //     // 鼠标放上去高亮的样式
-        //     emphasis: {
-        //       areaColor: '#2386AD',
-        //       borderWidth: 0
-        //     }
-        //   }
-        // },
-        bmap: {
-					center: Config.center,
-					zoom: 6,
-					roam: true,
-					mapStyle: {
+        geo: {// 地图配置
+          map: 'zhejiang',
+          label: { // 图形上的文本标签
+            normal: {// 通常状态下的样式
+              show: false,
+              textStyle: {
+                color: '#fff'
+              }
+            },
+            emphasis: {// 鼠标放上去高亮的样式
+              textStyle: {
+                color: '#fff'
+              }
+            }
+          },
+          itemStyle: {// 地图区域的样式设置
+            normal: { // 通常状态下的样式
+              borderColor: '#5089EC',
+              borderWidth: 0.1,
+              areaColor: { //地图区域的颜色
+                type: 'radial', // 径向渐变
+                x: 0.5, // 圆心
+                y: 0.5,// 圆心
+                r: 0.8,// 半径
+                colorStops: [
+                  { // 0% 处的颜色
+                    offset: 0,
+                    color: 'rgba(0, 102, 154, 0)'
+                  },
+                  { // 100% 处的颜色
+                    offset: 1,
+                    color: 'rgba(0, 102, 154, .4)'
+                  }
+                ]
+              }
+            },
+            // 鼠标放上去高亮的样式
+            emphasis: {
+              areaColor: '#2386AD',
+              borderWidth: 0
+            }
+          }
+        },
+        // bmap: {
+				// 	center: Config.center,
+				// 	zoom: 6,
+				// 	roam: true,
+				// 	mapStyle: {
 						
-					}
-				},
+				// 	}
+				// },
         series: [
           { // 散点系列数据
             type: 'effectScatter',// 带有涟漪特效动画的散点（气泡）图
-            coordinateSystem: 'bmap', //该系列使用的坐标系:地理坐标系
+            coordinateSystem: 'geo', //该系列使用的坐标系:地理坐标系
             // 特效类型,目前只支持涟漪特效'ripple'，意为“涟漪”
             effectType: 'ripple',
             // // 配置何时显示特效。可选'render'和'emphasis' 。
@@ -121,7 +121,7 @@ export default {
           { // 线条系列数据
             type: 'lines',
             zlevel: 2,
-            coordinateSystem: 'bmap',
+            coordinateSystem: 'geo',
             symbol: ['none', 'arrow'], // 标记的图形: 箭头
             symbolSize: 10, // 标记的大小
             effect: { // 线条特效的配置
@@ -145,7 +145,7 @@ export default {
         ]
       }
       // 地图注册，第一个参数的名字必须和option.geo.map一致
-      // echarts.registerMap('zhejiang', zhejiang)
+      echarts.registerMap('zhejiang', zhejiang)
       charts.setOption(option)
     }
   }
