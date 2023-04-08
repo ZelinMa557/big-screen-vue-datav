@@ -132,6 +132,16 @@
       .content-box {
         display: grid;
         grid-template-columns: 2fr 3fr 5fr 3fr 2fr;
+        .leftpart {
+          opacity: 0.8;
+          position: absolute;
+          left: 2%;
+        }
+        .rightpart {
+          // opacity: 0.8;
+          position: absolute;
+          left: 80%;
+        }
       }
 
       // 底部数据

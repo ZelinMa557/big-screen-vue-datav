@@ -1,6 +1,6 @@
 <template>
   <div id="centerRight2">
-    <dv-border-box-13>
+    <!-- <dv-border-box-13> -->
       <div class="bg-color-black">
         <div class="d-flex pt-2 pl-2">
           <span>
@@ -13,7 +13,7 @@
           <LeftTop/>
         </div>
       </div>
-    </dv-border-box-13>
+    <!-- </dv-border-box-13> -->
   </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
             value: 80
           }
         ],
-        colors : ['#2378f7','#2378f7','#2378f7','#2378f7','#2378f7','#2378f7'],
+        colors : ['#171c33','#171c33','#171c33','#171c33','#171c33','#171c33'],
         unit : 'KM/H',
         showValue : true
       }

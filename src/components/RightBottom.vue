@@ -1,6 +1,6 @@
 <template>
   <div id="center">
-    <dv-border-box-13>
+    <!-- <dv-border-box-13> -->
       <div class="down">
         <div class="percent">
           <div class="item bg-color-black">
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-    </dv-border-box-13>
+    <!-- </dv-border-box-13> -->
   </div>
 </template>
 
@@ -159,6 +159,8 @@ export default {
   flex-direction: column;
   width: 300px;
   margin-left: 20px;
+  background-color: rgba(19, 25, 47, 0.6);
+  // opacity: 1;
   .down {
     padding: 6px 4px;
     padding-bottom: 0;

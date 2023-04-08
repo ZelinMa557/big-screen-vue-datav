@@ -1,6 +1,6 @@
 <template>
 <div id="centerRight2">
-    <dv-border-box-12>
+    <!-- <dv-border-box-12> -->
       <div class="bg-color-black">
         <div class="d-flex pt-2 pl-2">
           <span>
@@ -13,7 +13,7 @@
           <LeftBottom/>
         </div>
       </div>
-    </dv-border-box-12>
+    <!-- </dv-border-box-12> -->
 </div>
 </template>
 

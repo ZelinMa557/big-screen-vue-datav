@@ -1,6 +1,6 @@
 <template>
   <div id="centerRight1">
-  <dv-border-box-13>
+  <!-- <dv-border-box-13> -->
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
@@ -14,7 +14,7 @@
         <dv-scroll-board class="dv-scr-board" :config="config" />
       </div>
     </div>
-    </dv-border-box-13>
+    <!-- </dv-border-box-13> -->
   </div>
 </template>
 
@@ -49,6 +49,7 @@ $box-width: 320px;
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
+  opacity: 0.6;
   .bg-color-black {
     height: $box-height - 30px;
     border-radius: 10px;

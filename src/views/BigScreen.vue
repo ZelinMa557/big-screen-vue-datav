@@ -50,16 +50,14 @@
         <div class="body-box">
           <!-- 第三行数据 -->
           <div class="content-box">
-            <div>
+            <div style="width: 1300px; height: 1020px; margin:0 auto">
+                <MapTest/>
+            </div>
+            <div class="leftpart">
                 <LeftTop/>
                 <LeftBottom/>
             </div>
-            <div style="width: 1300px; height: 1020px; margin:0 auto">
-              <dv-border-box-12>
-                <MapTest/>
-              </dv-border-box-12>
-            </div>
-            <div>             
+            <div class="rightpart">             
                 <RightTop/>
                 <RightBottom/>
             </div>
@@ -73,10 +71,10 @@
 <script>
 import drawMixin from "../utils/drawMixin";
 import { formatTime } from '../utils/index.js'
-import RightTop from './RightTop'
-import LeftTop from "./LeftTop.vue";
-import LeftBottom from "./LeftBottom.vue";
-import RightBottom from './RightBottom'
+import RightTop from '../components/RightTop'
+import LeftTop from "../components/LeftTop.vue";
+import LeftBottom from "../components/LeftBottom.vue";
+import RightBottom from '../components/RightBottom'
 import MapTest from "../components/MapTest.vue";
 import Config from "../../static/config.json"
 import BackImg from "../assets/bg.png"
