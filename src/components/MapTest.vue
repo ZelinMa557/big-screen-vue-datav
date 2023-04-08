@@ -38,11 +38,12 @@ export default {
           text : "西北地区地图",
           x : 'left',
           y : 'top',
-          textStyle: { "fontSize": 45,"fontWeight": "bolder","color": "black"},
+          textStyle: { "fontSize": 45,"fontWeight": "bolder","color": "white"},
           left : 10,
           top : 10
         },
         geo: {// 地图配置
+          backgroundColor: '#0E2152',
           map: 'zhejiang',
           label: { // 图形上的文本标签
             normal: {// 通常状态下的样式
@@ -89,9 +90,7 @@ export default {
 				// 	center: Config.center,
 				// 	zoom: 6,
 				// 	roam: true,
-				// 	mapStyle: {
-						
-				// 	}
+				// 	mapStyle:{style:'midnight'}
 				// },
         series: [
           { // 散点系列数据
@@ -130,12 +129,11 @@ export default {
               trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
               symbol: this.planePath, // 特效图形的标记 可选'circle'等
               symbolSize: 25,// 特效标记的大小
-              color : 'blue'
             },
             lineStyle: { // 线条样式
               normal: {
-                color: 'yellow',
-                width: 5, // 线条宽度
+                color: '#93EBF8',
+                width: 2.5, // 线条宽度
                 opacity: 0.6, // 尾迹线条透明度
                 curveness: 0.1// 尾迹线条曲直度
               }

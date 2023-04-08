@@ -12,6 +12,9 @@ import 'vue-awesome/icons/chart-area.js';
 import 'vue-awesome/icons/chart-pie.js';
 import 'vue-awesome/icons/chart-line.js';
 import 'vue-awesome/icons/align-left.js';
+import 'echarts/map/js/world.js'
+import 'echarts/map/js/china.js'
+import 'echarts/extension-src/bmap/bmap.js'
 import axios from "axios";
 
 //引入echart

@@ -8,11 +8,11 @@
     "points" : [
         { "name": "拉萨", "value": [91.137554,29.651469], "itemStyle": { "color": "red" } },
         { "name": "乌鲁木齐", "value": [87.623027,43.829685], "itemStyle": { "color": "red" } },
-        { "name": "", "value": [93.520054, 42.826864], "itemStyle": { "color": "green" } },
-        { "name": "", "value": [80.272969,41.186603], "itemStyle": { "color": "green" } },
-        { "name": "", "value": [88.152998,47.830335], "itemStyle": { "color": "green" } },
-        { "name": "", "value": [81.169716,30.412056], "itemStyle": { "color": "green" } },
-        { "name": "", "value": [96.676215,32.924209], "itemStyle": { "color": "green" } }
+        { "name": "", "value": [93.520054, 42.826864], "itemStyle": { "color": "#00EEFF" } },
+        { "name": "", "value": [80.272969,41.186603], "itemStyle": { "color": "#00EEFF" } },
+        { "name": "", "value": [88.152998,47.830335], "itemStyle": { "color": "#00EEFF" } },
+        { "name": "", "value": [81.169716,30.412056], "itemStyle": { "color": "#00EEFF" } },
+        { "name": "", "value": [96.676215,32.924209], "itemStyle": { "color": "#00EEFF" } }
     ],
     "lines" : [
         { "coords": [[91.137554,29.651469], [87.623027,43.829685]] },
