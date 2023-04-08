@@ -134,12 +134,12 @@ export default {
           id: 'centerRate2',
           tips: Config.qualified_rate,
           colorData: {
-            textStyle: '#67e0e3',
+            textStyle: '#3fc0fb',
             series: {
-              color: ['#faf3a378', 'transparent'],
+              color: ['#00bcd44a', 'transparent'],
               dataColor: {
-                normal: '#ff9800',
-                shadowColor: '#fcebad'
+                normal: '#03a9f4',
+                shadowColor: '#97e2f5'
               }
             }
           }
