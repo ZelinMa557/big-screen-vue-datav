@@ -31,7 +31,7 @@ export default {
           left : 10,
           top : 10
         },
-        color : ['#171c33', 'darkgray'],
+        color : ['rgb(25, 67, 130)', 'darkgray'],
         series : [
           {
               name: '在线统计',

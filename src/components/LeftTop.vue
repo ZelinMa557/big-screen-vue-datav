@@ -50,7 +50,7 @@ export default {
             value: 80
           }
         ],
-        colors : ['#171c33','#171c33','#171c33','#171c33','#171c33','#171c33'],
+        colors : ['rgb(17, 69, 165)','rgb(17, 69, 165)','rgb(17, 69, 165)','rgb(17, 69, 165)','rgb(17, 69, 165)','rgb(17, 69, 165)'],
         unit : 'KM/H',
         showValue : true
       }
@@ -68,6 +68,7 @@ export default {
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
+  background-color: rgba(19, 25, 47, 0.6);
   .bg-color-black {
     padding: 5px;
     height: $box-height;

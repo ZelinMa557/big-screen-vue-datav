@@ -11,7 +11,6 @@
 import * as echarts from 'echarts'
 import 'echarts/extension/bmap/bmap'
 import Config from '../../static/config.json'
-import zhejiang from '@/assets/northwest.json'
 export default {
   data () {
     return {

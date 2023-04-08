@@ -54,12 +54,12 @@ methods : {
             data : this.speeds,
             barWidth: '20%',
             itemStyle : {
-                color : '#171c33'
-                // color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                //     { offset: 0, color: 'purple' },
-                //     { offset: 0.7, color: '#2378f7' },
-                //     { offset: 1, color: '#83bff6' }
-                // ])
+                // color : '#171c33'
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0, color: 'purple' },
+                    { offset: 0.7, color: '#2378f7' },
+                    { offset: 1, color: '#83bff6' }
+                ])
             }
         },
         ]
