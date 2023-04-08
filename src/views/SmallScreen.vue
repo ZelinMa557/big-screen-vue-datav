@@ -16,14 +16,16 @@
 
 <script>
 import Config from '../../static/config.json'
+import TestResponse from '../../static/formatted.json'
 export default {
     mounted() {
         this.tasks = Config.small_screen_tasks
         this.selected = this.tasks[0]
         this.picture = this.selected.default_img
-        // this.timer = setInterval(() => {
-        //     setTimeout(this.getImg, 0)
-        // }, Config.refresh_interval)
+        this.test()
+        this.timer = setInterval(() => {
+            setTimeout(this.getImg, 0)
+        }, Config.refresh_interval)
     },
     data() {
         return {
@@ -35,16 +37,20 @@ export default {
     },
     methods: {
         getImg() {
-            // this.$http.get(this.selected.api).then((res)=>{
-            //     this.imgsrc = "data:image/" + Config.picture_type + ";base64," + res
-            // }).catch((e)=> {
-            //     this.imgsrc = this.selected.default_img
-            //     console.log(e)
-            // })
+            this.$http.get(this.selected.api).then((res)=>{
+                if(res.success == true)
+                this.picture = "data:image/" + Config.picture_type + ";base64," + res.base64_str
+            }).catch((e)=> {
+                console.log(e)
+            })
         },
         change() {
             this.picture = this.selected.default_img
-            console.log("change")
+        },
+        test() {
+            console.log("succ:", TestResponse.success)
+            if(TestResponse.success == true)
+                this.picture = "data:image/" + Config.picture_type + ";base64," + TestResponse.base64_str
         }
     },
     beforeUnmount(){
