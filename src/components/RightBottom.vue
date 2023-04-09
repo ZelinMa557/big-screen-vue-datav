@@ -159,8 +159,9 @@ export default {
   flex-direction: column;
   width: 300px;
   margin-left: 20px;
-  background-color: rgba(19, 25, 47, 0.6);
-  // opacity: 1;
+  // background-color: rgba(19, 25, 47, 0.6);
+  background-color: black;
+  opacity: 0.6;
   .down {
     padding: 6px 4px;
     padding-bottom: 0;

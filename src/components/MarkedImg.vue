@@ -27,8 +27,8 @@ export default {
     methods: {
         getImg() {
             this.$http.get(this.api).then((res)=>{
-                if(res.success == true)
-                    this.imgsrc = "data:image/" + Config.picture_type + ";base64," + res.base64_str
+                if(res.data.success == true)
+                    this.imgsrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
             }).catch((e)=> {
                 console.log(e)
             })

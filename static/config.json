@@ -1,6 +1,6 @@
 {
-    "server_ip" : "127.0.0.1",
-    "server_port" : "8080",
+    "server_ip" : "10.214.242.125",
+    "server_port" : "8000",
     "timeout" : 1000,
     "refresh_interval" : 1000,
     "big_screen_title" : "无人机路线图",
@@ -27,64 +27,64 @@
     "middle_screen_tasks" : [
         {
             "name" : "飞机1",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img1.baidu.com/it/u=2951880093,1614873083&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机2",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机3",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机4",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机5",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
         },
         {
             "name" : "飞机6",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机7",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         },
         {
             "name" : "飞机8",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机9",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         }
     ],
     "small_screen_tasks" : [
         {
             "name" : "热点1",
-            "api" : "",
+            "api" : "/get_img?planeid=1",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         },
         {
             "name" : "热点2",
-            "api" : "",
+            "api" : "/get_img?planeid=2",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "热点3",
-            "api" : "",
+            "api" : "/get_img?planeid=3",
             "default_img" : "https://img2.baidu.com/it/u=2193226670,440333225&fm=253&fmt=auto&app=138&f=PNG?w=753&h=500"
         }
     ],

@@ -38,14 +38,18 @@ export default {
     methods: {
         getImg() {
             this.$http.get(this.selected.api).then((res)=>{
-                if(res.success == true)
-                this.picture = "data:image/" + Config.picture_type + ";base64," + res.base64_str
+                // console.log(res)
+                if(res.data.success == true) {
+                    console.log(res.data.base64_str)
+                    this.picture = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+                }
             }).catch((e)=> {
                 console.log(e)
             })
         },
         change() {
             this.picture = this.selected.default_img
+            this.test()
         },
         test() {
             console.log("succ:", TestResponse.success)

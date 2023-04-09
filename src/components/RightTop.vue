@@ -30,7 +30,8 @@ export default {
         headerHeight: 35,
         headerBGC: '#0f1325', //表头
         oddRowBGC: '#0f1325', //奇数行
-        evenRowBGC: '#171c33', //偶数行
+        // evenRowBGC: '#171c33', //偶数行
+        evenRowBGC: 'black', //偶数行
         index: true,
         columnWidth: [50],
         align: ['center']
