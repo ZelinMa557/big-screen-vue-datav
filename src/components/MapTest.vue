@@ -11,6 +11,7 @@
 import * as echarts from 'echarts'
 import 'echarts/extension/bmap/bmap'
 import Config from '../../static/config.json'
+import TestResponse from '../../static/formatted.json'
 export default {
   data () {
     return {
@@ -30,7 +31,7 @@ export default {
     this.tasks = Config.big_screen_tasks
     this.initCharts()
     this.timer = setInterval(() => {
-          setTimeout(this.updateLabel(), 0)
+          setTimeout(this.test(), 0)
     }, Config.refresh_interval*3)
   },
   methods: {
@@ -127,28 +128,53 @@ export default {
     updateLabel() {
       var len = this.tasks.length
       var bmap = this.charts.getModel().getComponent('bmap').getBMap();
-      this.tasks.forEach((item)=> {
+      this.labels.forEach((item)=> {
         bmap.removeOverlay(item)
       })
       for(var i = 0; i < len; i++) {
         this.$http.get(this.api).then((res)=>{
           if(res.data.success == true && res.data.score >= 0.75) {
             var location = this.getLocation(i)
-            var customOverlay = new BMapGL.CustomOverlay(createDOM, {
-                point: new BMapGL.Point(location[0], location[1]),
-                opacity: 0.5,
-                offsetY: -10,
-                properties: {
-                    title: tasks[i].name,
-                    imgSrc: "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-                }
-            });
-            this.labels.push(customOverlay)
-            bmap.addOverlay(customOverlay);
+            var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
+            var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+            var sContent = '<span>' + this.tasks[i].name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
+            var infoWindow = new BMap.InfoWindow(sContent);
+            marker.addEventListener('click', function () {
+                this.openInfoWindow(infoWindow);
+            })
+            this.labels.push(marker);
+            bmap.addOverlay(marker);
           }
         }).catch((e)=> {
           console.log(e)
         })
+      }
+
+    },
+    test() {
+      var len = this.tasks.length
+      var bmap = this.charts.getModel().getComponent('bmap').getBMap();
+      this.labels.forEach((item)=> {
+        bmap.removeOverlay(item)
+      })
+      var res = {
+        data : TestResponse
+      }
+      for(var i = 0; i < len; i++) {
+          if(res.data.success == true && res.data.score >= 0.75) {
+            var location = this.getLocation(i)
+            var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
+            var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+            var sContent = '<span>' + this.tasks[i].name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
+            console.log(this.tasks[i].name)
+            var infoWindow = new BMap.InfoWindow(sContent);
+            marker.addEventListener('click', function () {
+                this.openInfoWindow(infoWindow);
+            })
+            this.labels.push(marker);
+            bmap.addOverlay(marker);
+          }
+        
       }
 
     },
