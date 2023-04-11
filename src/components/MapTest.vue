@@ -25,9 +25,9 @@ export default {
     this.points = Config.points
     this.linesData = Config.lines
     this.initCharts()
-    // this.timer = setInterval(() => {
-    //       setTimeout(this.initCharts, 0)
-    // }, Config.refresh_interval*10)
+    this.timer = setInterval(() => {
+          setTimeout(this.initCharts, 0)
+    }, Config.refresh_interval*10)
   },
   methods: {
     initCharts () {
@@ -117,7 +117,10 @@ export default {
       // echarts.registerMap('zhejiang', zhejiang)
       charts.setOption(option)
       var bmap = charts.getModel().getComponent('bmap').getBMap();
-      bmap.setMapStyle({style: 'dark'});
+      // bmap.setMapStyle({style: 'dark'});
+      bmap.setMapStyleV2({     
+        styleId: '8127aeef2b9161540d747e01e84d7a13'
+      });
     }
   }
 }
