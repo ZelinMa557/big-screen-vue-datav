@@ -59,16 +59,6 @@
             "name" : "飞机7",
             "api" : "/get_img?planeid=1",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
-        },
-        {
-            "name" : "飞机8",
-            "api" : "/get_img?planeid=1",
-            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
-        },
-        {
-            "name" : "飞机9",
-            "api" : "/get_img?planeid=1",
-            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         }
     ],
     "small_screen_tasks" : [

@@ -25,36 +25,43 @@ export default {
         if (len <= 2) {
             this.ImgWidth = total_width / 2;
             this.ImgHeight = total_height;
+            this.align(2);
             this.split(2, 1);
         }
         else if (len <= 4) {
             this.ImgWidth = total_width / 2;
             this.ImgHeight = total_height / 2;
+            this.align(4);
             this.split(2, 2);
         }
         else if (len <= 6) {
             this.ImgWidth = total_width / 3;
             this.ImgHeight = total_height / 2;
+            this.align(6)
             this.split(3, 2);
         }
         else if (len <= 9) {
             this.ImgWidth = total_width / 3;
             this.ImgHeight = total_height / 3;
+            this.align(9)
             this.split(3, 3);
         }
         else if (len <= 12) {
             this.ImgWidth = total_width / 4;
             this.ImgHeight = total_height / 3;
+            this.align(12)
             this.split(4, 3);
         }
         else if (len <= 16) {
             this.ImgWidth = total_width / 4;
             this.ImgHeight = total_height / 4;
+            this.align(16)
             this.split(4, 4);
         }
         else if (len <= 20) {
             this.ImgWidth = total_width / 5;
             this.ImgHeight = total_height / 4;
+            this.align(20)
             this.split(5, 4);
         }
         this.ImgWidth = this.ImgWidth
@@ -82,6 +89,16 @@ export default {
                 this.task_list.push(list)
             }
             console.log(this.task_list)
+        },
+        align(k) {
+            var len = this.tasks.length
+            for(var i = 0; i < k-len; i++) {
+                this.tasks.push({
+                    name : "",
+                    api : "",
+                    default_img : "no_signal"
+                })
+            }
         }
     }
 }
