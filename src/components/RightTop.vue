@@ -43,14 +43,15 @@ export default {
 
 <style lang="scss" scoped>
 $box-height: 500px;
-$box-width: 320px;
+$box-width: 350px;
 #centerRight1 {
   padding: 16px;
   padding-top: 20px;
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
-  opacity: 0.6;
+  // opacity: 0.6;
+  // background-color:  rgba(0, 0, 0, 0.6);
   .bg-color-black {
     height: $box-height - 30px;
     border-radius: 10px;
@@ -64,6 +65,8 @@ $box-width: 320px;
     .dv-scr-board {
       width: 340px;
       height: 400px;
+      background-color:  rgba(0, 0, 0, 0.6);
+      opacity: 0.7;
     }
   }
 }

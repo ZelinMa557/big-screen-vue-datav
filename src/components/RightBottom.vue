@@ -160,8 +160,7 @@ export default {
   width: 300px;
   margin-left: 20px;
   // background-color: rgba(19, 25, 47, 0.6);
-  background-color: black;
-  opacity: 0.6;
+  background-color: rgba(26, 26, 26, 0.6);
   .down {
     padding: 6px 4px;
     padding-bottom: 0;

@@ -69,7 +69,7 @@ export default {
   width: $box-width;
   border-radius: 5px;
   // background-color: rgba(19, 25, 47, 0.6);
-  background-color: rgb(26, 26, 26);
+  background-color: rgba(26, 26, 26, 0.6);
   .bg-color-black {
     padding: 5px;
     height: $box-height;
