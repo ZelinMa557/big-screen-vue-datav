@@ -22,6 +22,24 @@
         { "coords": [[91.137554,29.651469], [81.169716,30.412056]] },
         { "coords": [[91.137554,29.651469], [96.676215,32.924209]] }
     ],
+    "big_screen_tasks" : [
+        {
+            "name" : "飞机1",
+            "api" : "/get_img?planeid=1"
+        },
+        {
+            "name" : "飞机2",
+            "api" : "/get_img?planeid=1"
+        },
+        {
+            "name" : "飞机3",
+            "api" : "/get_img?planeid=1"
+        },
+        {
+            "name" : "飞机4",
+            "api" : "/get_img?planeid=1"
+        }
+    ],
     "middle_screen_title" : "实时显示",
     "picture_type" : "jpeg",
     "middle_screen_tasks" : [

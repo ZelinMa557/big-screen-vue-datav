@@ -19,19 +19,23 @@ export default {
       linesData: [],
       planePath: // 飞机svg
         'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
+      tasks : [],
+      labels : [],
+      charts : {}
     }
   },
   mounted () {
     this.points = Config.points
     this.linesData = Config.lines
+    this.tasks = Config.big_screen_tasks
     this.initCharts()
     this.timer = setInterval(() => {
-          setTimeout(this.initCharts, 0)
-    }, Config.refresh_interval*10)
+          setTimeout(this.updateLabel(), 0)
+    }, Config.refresh_interval*3)
   },
   methods: {
     initCharts () {
-      const charts = echarts.init(this.$refs['charts'])
+      this.charts = echarts.init(this.$refs['charts'])
       const option = {
         title : {
           text : "西北地区地图",
@@ -113,14 +117,51 @@ export default {
           }
         ]
       }
-      // 地图注册，第一个参数的名字必须和option.geo.map一致
-      // echarts.registerMap('zhejiang', zhejiang)
-      charts.setOption(option)
-      var bmap = charts.getModel().getComponent('bmap').getBMap();
+      this.charts.setOption(option)
+      var bmap = this.charts.getModel().getComponent('bmap').getBMap();
       // bmap.setMapStyle({style: 'dark'});
       bmap.setMapStyleV2({     
-        styleId: '8127aeef2b9161540d747e01e84d7a13'
+        styleId: '7119cb43f6185f53d588f1e66512d463'
       });
+    },
+    updateLabel() {
+      var len = this.tasks.length
+      var bmap = this.charts.getModel().getComponent('bmap').getBMap();
+      this.tasks.forEach((item)=> {
+        bmap.removeOverlay(item)
+      })
+      for(var i = 0; i < len; i++) {
+        this.$http.get(this.api).then((res)=>{
+          if(res.data.success == true && res.data.score >= 0.75) {
+            var location = this.getLocation(i)
+            var customOverlay = new BMapGL.CustomOverlay(createDOM, {
+                point: new BMapGL.Point(location[0], location[1]),
+                opacity: 0.5,
+                offsetY: -10,
+                properties: {
+                    title: tasks[i].name,
+                    imgSrc: "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+                }
+            });
+            this.labels.push(customOverlay)
+            bmap.addOverlay(customOverlay);
+          }
+        }).catch((e)=> {
+          console.log(e)
+        })
+      }
+
+    },
+    // 获取第i架战机的位置，当前由于缺乏接口，先返回一个随机数
+    getLocation(i) {
+      var lines_cnt = Config.lines.length
+      var selected_line = Math.floor(Math.random() * lines_cnt)
+      var start_point = Config.lines[selected_line].coords[0]
+      var end_point = Config.lines[selected_line].coords[1]
+      return [this.getRandom(start_point[0], end_point[0]), this.getRandom(start_point[1], end_point[1])]
+    },
+    getRandom(min, max) {
+      return Math.random() * (max - min) + min;
     }
   }
 }
