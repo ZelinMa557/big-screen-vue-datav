@@ -27,7 +27,7 @@ export default {
           text : "在线统计",
           x : 'left',
           y : 'top',
-          textStyle: { "fontSize": 18,"fontWeight": "bolder","color": "white"},
+          textStyle: { "fontSize": 20,"fontWeight": "bolder", "color" : "whitesmoke"},
           left : 10,
           top : 10
         },

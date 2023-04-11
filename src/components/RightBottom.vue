@@ -159,8 +159,10 @@ export default {
   flex-direction: column;
   width: 300px;
   margin-left: 20px;
-  // background-color: rgba(19, 25, 47, 0.6);
   background-color: rgba(26, 26, 26, 0.6);
+  font-size: larger;
+  font-weight: bolder;
+  color: white;
   .down {
     padding: 6px 4px;
     padding-bottom: 0;

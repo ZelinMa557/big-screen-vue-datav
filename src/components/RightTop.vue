@@ -55,6 +55,11 @@ $box-width: 350px;
   .bg-color-black {
     height: $box-height - 30px;
     border-radius: 10px;
+    .d-flex {
+      font-size: 20px;
+      font-weight: bolder;
+      color: white;
+    }
   }
   .text {
     color: #c3cbde;

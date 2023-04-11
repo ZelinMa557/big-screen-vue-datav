@@ -28,7 +28,7 @@ methods : {
           text : "流量统计",
           x : 'center',
           y : 'top',
-          textStyle: { "fontSize": 16,"fontWeight": "bolder","color": "white"},
+          textStyle: { "fontSize": 20,"fontWeight": "bolder","color": "white"},
           left : 10,
           top : 10
         },
