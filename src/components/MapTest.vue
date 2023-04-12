@@ -121,7 +121,6 @@ export default {
       }
       this.charts.setOption(option)
       var bmap = this.charts.getModel().getComponent('bmap').getBMap();
-      // bmap.setMapStyle({style: 'dark'});
       bmap.setMapStyleV2({     
         styleId: '7119cb43f6185f53d588f1e66512d463'
       });
@@ -151,18 +150,7 @@ export default {
           if(res.data.success == true && res.data.score >= 0.75) {
             var location = this.getLocation(i)
             var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-            // var marker = new BMap.CustomOverlay(this.createDOM, {
-            //     point: new BMap.Point(location[0], location[1]),
-            //     opacity: 0.5,
-            //     offsetY: -10,
-            //     properties: {
-            //         title: task.name,
-            //         imgSrc: img
-            //     }
-            // });
-            // this.labels.push(marker);
-            // bmap.addOverlay(marker);
-            this.addMapDeviceMarker(location, task.name, img)
+            this.addPictureOverlay(location, task.name, img)
           }
         
       }
@@ -187,89 +175,22 @@ export default {
         if(res.data.success == true && res.data.score >= 0.35) {
           var location = this.getLocation(i)
           var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-          var marker = new BMap.CustomOverlay(this.createDOM, {
-              point: new BMap.Point(location[0], location[1]),
-              opacity: 0.5,
-              offsetY: -10,
-              properties: {
-                  title: task.name,
-                  imgSrc: img
-              }
-          });
-          this.labels.push(marker);
-          bmap.addOverlay(marker);
+          
         }
       }).catch((e)=> {
         console.log(e)
       })
     },
-    addMapDeviceMarker (location, name, imgsrc) {
-      var map = this.charts.getModel().getComponent('bmap').getBMap();
-      function ComplexCustomOverlay (point, text, mouseoverText) {
-        this._point = point;
-        this._text = text;
-        this._overText = mouseoverText;
-      }
-
-      ComplexCustomOverlay.prototype = new BMap.Overlay();
-
-      ComplexCustomOverlay.prototype.initialize = function (map) {
-        this._map = map;
-        // 覆盖物容器样式
-        var div = this._div = document.createElement('div');
-        div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
-        div.style.backgroundColor = '#fff';
-        div.style.color = '#333';
-        div.style.height = '160px';
-        div.style.width = '230px';
-        div.style.padding = '2px';
-        div.style.lineHeight = '50px';
-        div.style.whiteSpace = 'nowrap';
-        div.style.MozUserSelect = 'none';
-        div.style.fontSize = '12px';
-        div.style.borderRadius = '10px';
-        div.style.display = 'flex';
-        div.style.justifyContent = 'center';
-        div.style.alignItems = 'center';
-        div.style.flexDirection = 'column';
-
-        var title = document.createElement('div');
-        title.style.display = 'block';
-        title.style.lineHeight = '16px';
-        title.style.fontSize = '16px';
-        title.style.fontWeight = '700';
-        div.appendChild(title);
-        title.appendChild(document.createTextNode(name));
-
-        let img = document.createElement('img');
-        img.style.width = '120px';
-        img.src = imgsrc;
-        div.appendChild(img);
-        var arrow = document.createElement('div');
-        arrow.style.position = 'absolute';
-        arrow.style.top = '164px';
-        arrow.style.left = '106px';
-        arrow.style.width = '0';
-        arrow.style.height = '0';
-        arrow.style.borderColor = 'white transparent transparent transparent';
-        arrow.style.borderStyle = 'solid';
-        arrow.style.borderWidth = '10px';
-        arrow.style.overflow = 'hidden';
-        div.appendChild(arrow);   
-        return div;
-      }
-
-      ComplexCustomOverlay.prototype.draw = function () {
-        var pixel = map.pointToOverlayPixel(this._point);
-        console.log(this._div)
-        this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
-        this._div.style.top  = pixel.y - 30 + "px";
-      }
-
-
-      let myCompOverlay = new ComplexCustomOverlay(new BMap.Point(location[0], location[1]), '', '');
-      map.addOverlay(myCompOverlay);
-      this.labels.push(myCompOverlay);
+    addPictureOverlay(location, name, imgsrc) {
+      var bmap = this.charts.getModel().getComponent('bmap').getBMap();
+      var myIcon = new BMap.Icon(imgsrc  //标注图片
+                     	, new BMap.Size(300, 440)  // 图片大小
+                        , { offset: new BMap.Size(0, 0), imageOffset: new BMap.Size(0,0)});   //偏移
+      // 创建标注，为要查询的地方对应的经纬度
+      var marker = new BMap.Marker(new BMap.Point(location[0], location[1])
+                                    , { title: name, icon: myIcon });
+      bmap.addOverlay(marker);
+      this.labels.push(marker)
     }
   }
 }
