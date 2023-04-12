@@ -30,6 +30,7 @@ export default {
     this.linesData = Config.lines
     this.tasks = Config.big_screen_tasks
     this.initCharts()
+    // this.test()
     this.timer = setInterval(() => {
           setTimeout(this.test(), 0)
     }, Config.refresh_interval*3)
@@ -132,22 +133,7 @@ export default {
         bmap.removeOverlay(item)
       })
       for(var i = 0; i < len; i++) {
-        this.$http.get(this.api).then((res)=>{
-          if(res.data.success == true && res.data.score >= 0.75) {
-            var location = this.getLocation(i)
-            var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
-            var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-            var sContent = '<span>' + this.tasks[i].name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
-            var infoWindow = new BMap.InfoWindow(sContent);
-            marker.addEventListener('click', function () {
-                this.openInfoWindow(infoWindow);
-            })
-            this.labels.push(marker);
-            bmap.addOverlay(marker);
-          }
-        }).catch((e)=> {
-          console.log(e)
-        })
+        this.getLabel(i)
       }
 
     },
@@ -166,13 +152,10 @@ export default {
             var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
             var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
             var sContent = '<span>' + this.tasks[i].name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
-            console.log(this.tasks[i].name)
             var infoWindow = new BMap.InfoWindow(sContent);
-            marker.addEventListener('click', function () {
-                this.openInfoWindow(infoWindow);
-            })
             this.labels.push(marker);
             bmap.addOverlay(marker);
+            marker.openInfoWindow(infoWindow);
           }
         
       }
@@ -181,13 +164,32 @@ export default {
     // 获取第i架战机的位置，当前由于缺乏接口，先返回一个随机数
     getLocation(i) {
       var lines_cnt = Config.lines.length
-      var selected_line = Math.floor(Math.random() * lines_cnt)
+      var selected_line = (i % lines_cnt)
       var start_point = Config.lines[selected_line].coords[0]
       var end_point = Config.lines[selected_line].coords[1]
-      return [this.getRandom(start_point[0], end_point[0]), this.getRandom(start_point[1], end_point[1])]
+      var randomNumber = Math.random()
+      return [-(start_point[0] - end_point[0]) * randomNumber + start_point[0], 
+        -(start_point[1] - end_point[1]) * randomNumber + start_point[1]]
     },
     getRandom(min, max) {
       return Math.random() * (max - min) + min;
+    },
+    getLabel(i) {
+      var task = this.tasks[i]
+      this.$http.get(this.tasks[i].api).then((res)=>{
+        if(res.data.success == true && res.data.score >= 0.35) {
+          var location = this.getLocation(i)
+          var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
+          var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+          var sContent = '<span>' + task.name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
+          var infoWindow = new BMap.InfoWindow(sContent);
+          this.labels.push(marker);
+          bmap.addOverlay(marker);
+          marker.openInfoWindow(infoWindow);
+        }
+      }).catch((e)=> {
+        console.log(e)
+      })
     }
   }
 }

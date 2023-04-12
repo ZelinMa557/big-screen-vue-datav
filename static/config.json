@@ -1,6 +1,6 @@
 {
     "server_ip" : "10.214.242.125",
-    "server_port" : "8000",
+    "server_port" : "8080",
     "timeout" : 1000,
     "refresh_interval" : 1000,
     "big_screen_title" : "无人机路线图",
@@ -29,15 +29,15 @@
         },
         {
             "name" : "飞机2",
-            "api" : "/get_img?planeid=1"
+            "api" : "/get_img?planeid=2"
         },
         {
             "name" : "飞机3",
-            "api" : "/get_img?planeid=1"
+            "api" : "/get_img?planeid=3"
         },
         {
             "name" : "飞机4",
-            "api" : "/get_img?planeid=1"
+            "api" : "/get_img?planeid=4"
         }
     ],
     "middle_screen_title" : "实时显示",
@@ -50,32 +50,32 @@
         },
         {
             "name" : "飞机2",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=2",
             "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机3",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=3",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机4",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=4",
             "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机5",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=5",
             "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
         },
         {
             "name" : "飞机6",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=6",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机7",
-            "api" : "/get_img?planeid=1",
+            "api" : "/get_img?planeid=7",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         }
     ],
