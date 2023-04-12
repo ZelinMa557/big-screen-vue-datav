@@ -147,15 +147,22 @@ export default {
         data : TestResponse
       }
       for(var i = 0; i < len; i++) {
+          var task = this.tasks[i]
           if(res.data.success == true && res.data.score >= 0.75) {
             var location = this.getLocation(i)
-            var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
-            var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-            var sContent = '<span>' + this.tasks[i].name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
-            var infoWindow = new BMap.InfoWindow(sContent);
-            this.labels.push(marker);
-            bmap.addOverlay(marker);
-            marker.openInfoWindow(infoWindow);
+            var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+            // var marker = new BMap.CustomOverlay(this.createDOM, {
+            //     point: new BMap.Point(location[0], location[1]),
+            //     opacity: 0.5,
+            //     offsetY: -10,
+            //     properties: {
+            //         title: task.name,
+            //         imgSrc: img
+            //     }
+            // });
+            // this.labels.push(marker);
+            // bmap.addOverlay(marker);
+            this.addMapDeviceMarker(location, task.name, img)
           }
         
       }
@@ -179,17 +186,90 @@ export default {
       this.$http.get(this.tasks[i].api).then((res)=>{
         if(res.data.success == true && res.data.score >= 0.35) {
           var location = this.getLocation(i)
-          var marker = new BMap.Marker(new BMap.Point(location[0], location[1]));
-          var imgSrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-          var sContent = '<span>' + task.name + '</span><img src=\'' + imgSrc + '\' width=\"300px\">'
-          var infoWindow = new BMap.InfoWindow(sContent);
+          var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+          var marker = new BMap.CustomOverlay(this.createDOM, {
+              point: new BMap.Point(location[0], location[1]),
+              opacity: 0.5,
+              offsetY: -10,
+              properties: {
+                  title: task.name,
+                  imgSrc: img
+              }
+          });
           this.labels.push(marker);
           bmap.addOverlay(marker);
-          marker.openInfoWindow(infoWindow);
         }
       }).catch((e)=> {
         console.log(e)
       })
+    },
+    addMapDeviceMarker (location, name, imgsrc) {
+      var map = this.charts.getModel().getComponent('bmap').getBMap();
+      function ComplexCustomOverlay (point, text, mouseoverText) {
+        this._point = point;
+        this._text = text;
+        this._overText = mouseoverText;
+      }
+
+      ComplexCustomOverlay.prototype = new BMap.Overlay();
+
+      ComplexCustomOverlay.prototype.initialize = function (map) {
+        this._map = map;
+        // 覆盖物容器样式
+        var div = this._div = document.createElement('div');
+        div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+        div.style.backgroundColor = '#fff';
+        div.style.color = '#333';
+        div.style.height = '160px';
+        div.style.width = '230px';
+        div.style.padding = '2px';
+        div.style.lineHeight = '50px';
+        div.style.whiteSpace = 'nowrap';
+        div.style.MozUserSelect = 'none';
+        div.style.fontSize = '12px';
+        div.style.borderRadius = '10px';
+        div.style.display = 'flex';
+        div.style.justifyContent = 'center';
+        div.style.alignItems = 'center';
+        div.style.flexDirection = 'column';
+
+        var title = document.createElement('div');
+        title.style.display = 'block';
+        title.style.lineHeight = '16px';
+        title.style.fontSize = '16px';
+        title.style.fontWeight = '700';
+        div.appendChild(title);
+        title.appendChild(document.createTextNode(name));
+
+        let img = document.createElement('img');
+        img.style.width = '120px';
+        img.src = imgsrc;
+        div.appendChild(img);
+        var arrow = document.createElement('div');
+        arrow.style.position = 'absolute';
+        arrow.style.top = '164px';
+        arrow.style.left = '106px';
+        arrow.style.width = '0';
+        arrow.style.height = '0';
+        arrow.style.borderColor = 'white transparent transparent transparent';
+        arrow.style.borderStyle = 'solid';
+        arrow.style.borderWidth = '10px';
+        arrow.style.overflow = 'hidden';
+        div.appendChild(arrow);   
+        return div;
+      }
+
+      ComplexCustomOverlay.prototype.draw = function () {
+        var pixel = map.pointToOverlayPixel(this._point);
+        console.log(this._div)
+        this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
+        this._div.style.top  = pixel.y - 30 + "px";
+      }
+
+
+      let myCompOverlay = new ComplexCustomOverlay(new BMap.Point(location[0], location[1]), '', '');
+      map.addOverlay(myCompOverlay);
+      this.labels.push(myCompOverlay);
     }
   }
 }
