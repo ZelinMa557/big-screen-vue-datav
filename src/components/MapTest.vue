@@ -175,7 +175,7 @@ export default {
         if(res.data.success == true && res.data.score >= 0.35) {
           var location = this.getLocation(i)
           var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-          
+          this.addPictureOverlay(location, task.name, img)
         }
       }).catch((e)=> {
         console.log(e)
@@ -183,14 +183,50 @@ export default {
     },
     addPictureOverlay(location, name, imgsrc) {
       var bmap = this.charts.getModel().getComponent('bmap').getBMap();
-      var myIcon = new BMap.Icon(imgsrc  //标注图片
-                     	, new BMap.Size(300, 440)  // 图片大小
-                        , { offset: new BMap.Size(0, 0), imageOffset: new BMap.Size(0,0)});   //偏移
-      // 创建标注，为要查询的地方对应的经纬度
-      var marker = new BMap.Marker(new BMap.Point(location[0], location[1])
-                                    , { title: name, icon: myIcon });
-      bmap.addOverlay(marker);
-      this.labels.push(marker)
+      function PictureOverlay(location, name, imgsrc){
+          this._location = location;
+          this._name = name;
+          this._imgsrc = imgsrc;
+      }
+      // 继承API的BMap.Overlay
+      PictureOverlay.prototype = new BMap.Overlay();
+      PictureOverlay.prototype.initialize = function(map){
+        // 保存map对象实例
+        this._map = map;
+        // 创建div元素，作为自定义覆盖物的容器
+        var div = document.createElement("div");
+        div.style.position = "absolute";
+        // 可以根据参数设置元素外观
+        div.style.width = '200px';
+        div.style.height = '240px';
+        var img = document.createElement("img");
+        img.style.width = '100%';
+        img.src = this._imgsrc
+
+        var arrow = document.createElement('div');
+        arrow.style.width = '0';
+        arrow.style.height = '0';
+        arrow.style.borderColor = 'red transparent transparent transparent';
+        arrow.style.borderStyle = 'solid';
+        arrow.style.borderWidth = '10px'
+        div.appendChild(arrow)
+        div.appendChild(img);
+        // 将div添加到覆盖物容器中
+        map.getPanes().markerPane.appendChild(div);
+        // 保存div实例
+        this._div = div;
+        return div
+      }
+      PictureOverlay.prototype.draw = function(){    
+      // 根据地理坐标转换为像素坐标，并设置给容器    
+          var position = this._map.pointToOverlayPixel(this._location);  
+          console.log(position)  
+          this._div.style.left = position.x + 'px';    
+          this._div.style.top = position.y + 'px';    
+      }
+      var picOverlay = new PictureOverlay(new BMap.Point(location[0], location[1]), name, imgsrc)
+      bmap.addOverlay(picOverlay);
+      this.labels.push(picOverlay);
     }
   }
 }
