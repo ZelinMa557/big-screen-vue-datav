@@ -38,7 +38,7 @@ export default {
             timer : null,
             picture: "",
             service: "车辆检测",
-            need_alert: true
+            need_alert: false
         }
     },
     methods: {

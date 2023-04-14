@@ -50,15 +50,30 @@ export default {
             this.$http.get(this.api).then((res)=>{
                 if(res.data.success == true) {
                     this.imgsrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-                    if(res.data.score >= 0.5) {
-                        this.need_alert = true
-                    } else {
-                        this.need_alert = false
+                    if('score' in res.data) {
+                        if(Array.isArray(res.data.score)) {
+                            exist_valid = false
+                            res.data.score.forEach(element => {
+                                if(element >= 0.5) {
+                                    exist_valid = true
+                                }
+                            });
+                            this.need_alert = exist_valid
+                        }
+                        else {
+                            if(res.data.score >= 0.5) {
+                                this.need_alert = true
+                            } else {
+                                this.need_alert = false
+                            }
+                        }
                     }
                     this.service = res.data.service
                     if(this.service.toLowerCase() == "image classification") {
-                        this.name = res.data.name
+                        this.name = res.data.class_name
                         this.show_name = true
+                    } else {
+                        this.show_name = false
                     }
                 }
             }).catch((e)=> {
@@ -66,9 +81,40 @@ export default {
             })
         },
         test() {
-            console.log("succ:", TestResponse.success)
-            if(TestResponse.success == true)
-                this.imgsrc = "data:image/" + Config.picture_type + ";base64," + TestResponse.base64_str
+            var res = {
+                data :TestResponse
+            }
+            if(res.data.success == true) {
+                this.imgsrc = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+                if('score' in res.data) {
+                    if(Array.isArray(res.data.score)) {
+                        exist_valid = false
+                        res.data.score.forEach(element => {
+                            if(element >= 0.5) {
+                                exist_valid = true
+                            }
+                        });
+                        this.need_alert = exist_valid
+                    }
+                    else {
+                        if(res.data.score >= 0.5) {
+                            this.need_alert = true
+                        } else {
+                            this.need_alert = false
+                        }
+                    }
+                }
+                this.service = res.data.service
+                if(this.service.toLowerCase() == "image classification") {
+                    this.name = res.data.class_name
+                    this.show_name = true
+                } else {
+                    this.show_name = false
+                }
+            }
+            // console.log("succ:", TestResponse.success)
+            // if(TestResponse.success == true)
+            //     this.imgsrc = "data:image/" + Config.picture_type + ";base64," + TestResponse.base64_str
         }
     }
 }
