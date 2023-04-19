@@ -1,6 +1,6 @@
 {
     "server_ip" : "10.214.242.125",
-    "server_port" : "8080",
+    "server_port" : "5000",
     "timeout" : 1000,
     "refresh_interval" : 1000,
     "big_screen_title" : "无人机路线图",
@@ -25,19 +25,19 @@
     "big_screen_tasks" : [
         {
             "name" : "飞机1",
-            "api" : "/get_img?planeid=1"
+            "api" : "/get_document?collection=object_detection_test04_min_test_006_topic"
         },
         {
             "name" : "飞机2",
-            "api" : "/get_img?planeid=2"
+            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic"
         },
         {
             "name" : "飞机3",
-            "api" : "/get_img?planeid=3"
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic"
         },
         {
             "name" : "飞机4",
-            "api" : "/get_img?planeid=4"
+            "api" : "/get_document?collection=image_classification_test01_flight_data_topic"
         }
     ],
     "middle_screen_title" : "实时显示",
@@ -45,60 +45,70 @@
     "middle_screen_tasks" : [
         {
             "name" : "飞机1",
-            "api" : "/get_segment_img?planeid=1",
+            "api" : "/get_document?collection=object_detection_test04_min_test_006_topic",
             "default_img" : "https://img1.baidu.com/it/u=2951880093,1614873083&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机2",
-            "api" : "/get_segment_img?planeid=2",
+            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic",
             "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机3",
-            "api" : "/get_classified_img?planeid=3",
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机4",
-            "api" : "/get_classified_img?planeid=4",
+            "api" : "/get_document?collection=image_classification_test01_flight_data_topic",
             "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机5",
-            "api" : "/get_img?planeid=5",
+            "api" : "/get_document?collection=image_classification_test01_flight_data1_topic",
             "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
         },
         {
             "name" : "飞机6",
-            "api" : "/get_img?planeid=6",
+            "api" : "/get_document?collection=image_classification_test01_flight_data2_topic",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "飞机7",
-            "api" : "/get_img?planeid=7",
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
         }
     ],
     "small_screen_tasks" : [
         {
-            "name" : "图像分割服务",
-            "api" : "/get_segment_img?planeid=1",
-            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
-        },
-        {
-            "name" : "图像分类服务",
-            "api" : "/get_classified_img?planeid=2",
-            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
-        },
-        {
             "name" : "目标检测1",
-            "api" : "/get_img?planeid=3",
-            "default_img" : "https://img2.baidu.com/it/u=2193226670,440333225&fm=253&fmt=auto&app=138&f=PNG?w=753&h=500"
+            "api" : "/get_document?collection=object_detection_test04_min_test_006_topic",
+            "default_img" : "https://img1.baidu.com/it/u=2951880093,1614873083&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
             "name" : "目标检测2",
-            "api" : "/get_img?planeid=1",
-            "default_img" : "https://img2.baidu.com/it/u=2193226670,440333225&fm=253&fmt=auto&app=138&f=PNG?w=753&h=500"
+            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic",
+            "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "目标检测3",
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "图像分类1",
+            "api" : "/get_document?collection=image_classification_test01_flight_data_topic",
+            "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "图像分类2",
+            "api" : "/get_document?collection=image_classification_test01_flight_data1_topic",
+            "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
+        },
+        {
+            "name" : "图像分类3",
+            "api" : "/get_document?collection=image_classification_test01_flight_data2_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         }
     ],
     "ranking_header" : ["战机", "巡逻地", "覆盖率"],

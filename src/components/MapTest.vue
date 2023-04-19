@@ -32,8 +32,8 @@ export default {
     this.initCharts()
     // this.test()
     this.timer = setInterval(() => {
-          setTimeout(this.test(), 0)
-    }, Config.refresh_interval*3)
+          setTimeout(this.updateLabel(), 0)
+    }, Config.refresh_interval*2)
   },
   methods: {
     initCharts () {
@@ -147,12 +147,9 @@ export default {
       }
       for(var i = 0; i < len; i++) {
           var task = this.tasks[i]
-          if(res.data.success == true && res.data.score >= 0.75) {
-            var location = this.getLocation(i)
-            var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-            this.addPictureOverlay(location, task.name, img)
-          }
-        
+          var location = this.getLocation(i)
+          var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
+          this.addPictureOverlay(location, task.name, img)
       }
 
     },
@@ -172,33 +169,39 @@ export default {
     getLabel(i) {
       var task = this.tasks[i]
       this.$http.get(this.tasks[i].api).then((res)=>{
-        if(res.data.success == true) {
           var location = this.getLocation(i)
-          var img = "data:image/" + Config.picture_type + ";base64," + res.data.base64_str
-          // this.addPictureOverlay(location, task.name, img)
-          if(res.data.service == "Image Segmentation") {
-            if(res.data.message == "Object successfully segmented.")
-              this.addPictureOverlay(location, task.name, img)
-          }
-          else if(res.data.service == "Image Classification") {
-            if(res.data.message == "Object successfully classified.")
-              this.addPictureOverlay(location, task.name, img)
-          }
-          else {
-            if(Array.isArray(res.data.score)) {
-              for(var i = 0, len = res.data.score.length; i < len; i++) {
-                if(res.data.score >= 0.5) {
-                  this.addPictureOverlay(location, task.name, img)
-                  break
-                }
+          var data = eval('(' + res.data + ')')
+          var img = "data:image/" + Config.picture_type + ";base64," + data.base64_str
+          var need_show = false
+          data.result_list.forEach(element => {
+              if(element.score >= 0.5) {
+                  need_show = true
               }
-            } else {
-              if(res.data.score >= 0.5) {
-                this.addPictureOverlay(location, task.name, img)
-              }
-            }
-          }
-        }
+          });
+          if(need_show)
+            this.addPictureOverlay(location, task.name, img)
+          // if(res.data.service == "Image Segmentation") {
+          //   if(res.data.message == "Object successfully segmented.")
+          //     this.addPictureOverlay(location, task.name, img)
+          // }
+          // else if(res.data.service == "Image Classification") {
+          //   if(res.data.message == "Object successfully classified.")
+          //     this.addPictureOverlay(location, task.name, img)
+          // }
+          // else {
+          //   if(Array.isArray(res.data.score)) {
+          //     for(var i = 0, len = res.data.score.length; i < len; i++) {
+          //       if(res.data.score >= 0.5) {
+          //         this.addPictureOverlay(location, task.name, img)
+          //         break
+          //       }
+          //     }
+          //   } else {
+          //     if(res.data.score >= 0.5) {
+          //       this.addPictureOverlay(location, task.name, img)
+          //     }
+          //   }
+          // }
       }).catch((e)=> {
         console.log(e)
       })
