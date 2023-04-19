@@ -15,12 +15,12 @@
         { "name": "", "value": [96.676215,32.924209], "itemStyle": { "color": "#00EEFF" } }
     ],
     "lines" : [
-        { "coords": [[91.137554,29.651469], [87.623027,43.829685]] },
-        { "coords": [[87.623027,43.829685], [93.520054,42.826864]] },
-        { "coords": [[87.623027,43.829685], [80.272969,41.186603]] },
-        { "coords": [[87.623027,43.829685], [88.152998,47.830335]] },
-        { "coords": [[91.137554,29.651469], [81.169716,30.412056]] },
-        { "coords": [[91.137554,29.651469], [96.676215,32.924209]] }
+        { "coords": [[91.137554,29.651469], [87.623027,43.829685]], "cycle" : 1000, "rotation" : 347 },
+        { "coords": [[87.623027,43.829685], [93.520054,42.826864]], "cycle" : 1000, "rotation" : 100},
+        { "coords": [[87.623027,43.829685], [80.272969,41.186603]], "cycle" : 600, "rotation" : 240},
+        { "coords": [[87.623027,43.829685], [88.152998,47.830335]], "cycle" : 800, "rotation" : 5},
+        { "coords": [[91.137554,29.651469], [81.169716,30.412056]], "cycle" : 700, "rotation" : 280},
+        { "coords": [[91.137554,29.651469], [96.676215,32.924209]], "cycle" : 1000, "rotation" : 60}
     ],
     "big_screen_tasks" : [
         {
@@ -38,6 +38,16 @@
         {
             "name" : "飞机4",
             "api" : "/get_document?collection=image_classification_test01_flight_data_topic"
+        },
+        {
+            "name" : "飞机5",
+            "api" : "/get_document?collection=image_classification_test01_flight_data1_topic",
+            "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
+        },
+        {
+            "name" : "飞机6",
+            "api" : "/get_document?collection=image_classification_test01_flight_data2_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         }
     ],
     "middle_screen_title" : "实时显示",

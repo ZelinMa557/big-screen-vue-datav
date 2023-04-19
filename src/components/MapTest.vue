@@ -22,7 +22,12 @@ export default {
         'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
       tasks : [],
       labels : [],
-      charts : {}
+      charts : {},
+      locations : [],
+      startTime: 0,
+      updater : null,
+      planes_markers : [],
+      rotations: []
     }
   },
   mounted () {
@@ -34,6 +39,15 @@ export default {
     this.timer = setInterval(() => {
           setTimeout(this.updateLabel(), 0)
     }, Config.refresh_interval*2)
+    var len = Config.lines.length
+    console.log(this.rotations)
+    for(var i = 0; i < len; i++) {
+      this.locations.push(Config.lines[i].coords[0])
+      this.rotations.push(this.getRotation(i))
+    }
+    this.updater = setInterval(() => {
+          setTimeout(this.updatePlanes(), 0)
+    }, 50)
   },
   methods: {
     initCharts () {
@@ -100,19 +114,19 @@ export default {
             coordinateSystem: 'bmap',
             symbol: ['none', 'arrow'], // 标记的图形: 箭头
             symbolSize: 10, // 标记的大小
-            effect: { // 线条特效的配置
-              show: true,
-              period: 60, // 特效动画的时间，单位s
-              trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
-              symbol: this.planePath, // 特效图形的标记 可选'circle'等
-              symbolSize: 25,// 特效标记的大小
-            },
+            // effect: { // 线条特效的配置
+            //   show: true,
+            //   period: 100, // 特效动画的时间，单位s
+            //   trailLength: 0, // 特效尾迹的长度。取值[0,1]值越大，尾迹越重
+            //   symbol: this.planePath, // 特效图形的标记 可选'circle'等
+            //   symbolSize: 25,// 特效标记的大小
+            // },
             lineStyle: { // 线条样式
               normal: {
                 color: '#93EBF8',
                 width: 2.5, // 线条宽度
                 opacity: 0.6, // 尾迹线条透明度
-                curveness: 0.1// 尾迹线条曲直度
+                curveness: 0// 尾迹线条曲直度
               }
             },
             data: this.linesData
@@ -155,13 +169,7 @@ export default {
     },
     // 获取第i架战机的位置，当前由于缺乏接口，先返回一个随机数
     getLocation(i) {
-      var lines_cnt = Config.lines.length
-      var selected_line = (i % lines_cnt)
-      var start_point = Config.lines[selected_line].coords[0]
-      var end_point = Config.lines[selected_line].coords[1]
-      var randomNumber = Math.random()
-      return [-(start_point[0] - end_point[0]) * randomNumber + start_point[0], 
-        -(start_point[1] - end_point[1]) * randomNumber + start_point[1]]
+      return this.locations[i]
     },
     getRandom(min, max) {
       return Math.random() * (max - min) + min;
@@ -222,14 +230,41 @@ export default {
       }
       PictureOverlay.prototype.draw = function(){    
       // 根据地理坐标转换为像素坐标，并设置给容器    
-          var position = this._map.pointToOverlayPixel(this._location);  
-          console.log(position)  
+          var position = this._map.pointToOverlayPixel(this._location); 
           this._div.style.left = position.x + 'px';    
           this._div.style.top = position.y + 'px';    
       }
       var picOverlay = new PictureOverlay(new BMap.Point(location[0], location[1]), name, imgsrc)
       bmap.addOverlay(picOverlay);
       this.labels.push(picOverlay);
+    },
+    updatePlanes() {
+      var bmap = this.charts.getModel().getComponent('bmap').getBMap();
+      this.planes_markers.forEach((item)=> {
+        bmap.removeOverlay(item)
+      })
+      var len = Config.lines.length
+      var cur = Date.now() / 1000
+      for(var i = 0; i < len; i++) {
+        var percent = (cur % Config.lines[i].cycle) / Config.lines[i].cycle
+        var start_point = Config.lines[i].coords[0]
+        var end_point = Config.lines[i].coords[1]
+        this.locations[i] = [-(start_point[0] - end_point[0]) * percent + start_point[0], 
+                -(start_point[1] - end_point[1]) * percent + start_point[1]]
+        var myIcon = new BMap.Icon("marker.svg", new BMap.Size(32, 32), {    
+            anchor: new BMap.Size(16, 16)  
+        });  
+        var marker = new BMap.Marker(
+          new BMap.Point(this.locations[i][0], this.locations[i][1]),
+        )
+        marker.setIcon(myIcon)
+        marker.setRotation(this.rotations[i])
+        bmap.addOverlay(marker);
+        this.planes_markers.push(marker)
+      }
+    },
+    getRotation(i) {
+      return Config.lines[i].rotation
     }
   }
 }
