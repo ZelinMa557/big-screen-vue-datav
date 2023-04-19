@@ -5,7 +5,7 @@
         </div>
     </div>
     <div v-else>
-        <div v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative'}">
+        <div v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative', display: 'flex', 'justify-content': 'center', 'align-items': 'center'}">
             <img v-bind:src="imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '100%'}" onclick="this.test"/>
             <span class="service">{{this.service}}服务</span>
             <span class="name" v-if="this.show_name">类别：{{this.name}}</span>

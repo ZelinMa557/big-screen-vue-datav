@@ -180,28 +180,6 @@ export default {
           });
           if(need_show)
             this.addPictureOverlay(location, task.name, img)
-          // if(res.data.service == "Image Segmentation") {
-          //   if(res.data.message == "Object successfully segmented.")
-          //     this.addPictureOverlay(location, task.name, img)
-          // }
-          // else if(res.data.service == "Image Classification") {
-          //   if(res.data.message == "Object successfully classified.")
-          //     this.addPictureOverlay(location, task.name, img)
-          // }
-          // else {
-          //   if(Array.isArray(res.data.score)) {
-          //     for(var i = 0, len = res.data.score.length; i < len; i++) {
-          //       if(res.data.score >= 0.5) {
-          //         this.addPictureOverlay(location, task.name, img)
-          //         break
-          //       }
-          //     }
-          //   } else {
-          //     if(res.data.score >= 0.5) {
-          //       this.addPictureOverlay(location, task.name, img)
-          //     }
-          //   }
-          // }
       }).catch((e)=> {
         console.log(e)
       })
