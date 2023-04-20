@@ -107,6 +107,7 @@ export default {
     position: absolute;
     top: 1%;
     right: 1%;
+    background-color: gray;
 }
 
 .name {
@@ -114,6 +115,7 @@ export default {
     position: absolute;
     top: 1%;
     left: 1%;
+    background-color: gray;
 }
 
 @keyframes blinker {
