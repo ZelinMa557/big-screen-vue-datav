@@ -8,8 +8,12 @@
             <option :key="task.name" :value="task" v-for="task in tasks">{{task.name}}</option>
         </select>
     </div>
-    <div style="position: relative;display: flex; justify-content: center; align-items: center; overflow: hidden;">
-        <img v-bind:src="picture" class="i"/>
+    <div v-if="this.show_two_imgs">
+            <img v-bind:src="picture" class="half_i"/>
+            <img v-bind:src="processed_picture" class="half_i"/>
+    </div>
+    <div v-else style="position: relative;display: flex; justify-content: center; align-items: center; overflow: hidden;">
+            <img v-bind:src="picture" class="i"/>
         <span class="name" v-if="this.show_name">类别：{{this.name}}</span>
     </div>
     <div v-if="need_alert" class="alerter">
@@ -34,6 +38,9 @@ export default {
         if(this.service == "image classification") {
             this.show_name = true
         }
+        if(this.service == "image segmentation") {
+            this.show_two_imgs = true
+        }
     },
     data() {
         return {
@@ -41,10 +48,12 @@ export default {
             selected : {},
             timer : null,
             picture: "",
+            processed_picture : "",
             service: "车辆检测",
             need_alert: false,
             name : "",
-            show_name : false
+            show_name : false,
+            show_two_imgs : false
         }
     },
     methods: {
@@ -52,6 +61,9 @@ export default {
             this.$http.get(this.selected.api).then((res)=>{
                 var data = eval('(' + res.data + ')')
                 this.picture = "data:image/" + Config.picture_type + ";base64," + data.base64_str
+                if(this.show_two_imgs) {
+                    this.processed_picture = "data:image/" + Config.picture_type + ";base64," + data.processed_base64_str
+                }
                 this.need_alert = false
                 data.result_list.forEach(element => {
                     if(element.score >= 0.5) {
@@ -66,11 +78,16 @@ export default {
             })
         },
         change() {
-            // this.picture = this.selected.default_img
-            // this.test()
             this.service = this.getService(this.selected.api)
             if(this.service == "image classification") {
                 this.show_name = true
+            } else {
+                this.show_name = false
+            }
+            if(this.service == "image segmentation") {
+                this.show_two_imgs = true
+            } else {
+                this.show_two_imgs = false
             }
         },
         test() {
@@ -117,9 +134,12 @@ export default {
   .i {
     height: 92%;
     width: 100%;
-    // max-height: 92%;
   }
 
+  .half_i {
+    max-width: 50%;
+    max-height: 92%;
+  }
   .name {
     position: absolute;
     background-color: gray;

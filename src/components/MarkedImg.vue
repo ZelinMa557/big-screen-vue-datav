@@ -1,4 +1,5 @@
 <template>
+    <div class="box">
     <div v-if="this.no_signal" v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative'}">
         <div class="nobox">
             <span class="nosig">NO SIGNAL</span>
@@ -6,7 +7,13 @@
     </div>
     <div v-else>
         <div v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative', display: 'flex', 'justify-content': 'center', 'align-items': 'center'}">
-            <img v-bind:src="imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '100%'}" onclick="this.test"/>
+            <div v-if="this.show_two_imgs">
+                <img v-bind:src="imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '50%'}" onclick="this.test"/>
+                <img v-bind:src="processed_imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '50%'}" onclick="this.test"/>
+            </div>
+            <div v-else>
+                <img v-bind:src="imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '100%'}" onclick="this.test"/>
+            </div>
             <span class="service">{{this.service}}服务</span>
             <span class="name" v-if="this.show_name">类别：{{this.name}}</span>
             <div v-if="need_alert" class="alerter">
@@ -14,6 +21,7 @@
                 <svg t="1681265782406" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3343" width="48" height="48"><path d="M926 215.173333l-384-170.666666a21.333333 21.333333 0 0 0-17.333333 0l-384 170.666666A21.333333 21.333333 0 0 0 128 234.666667v217.813333c0 219.866667 129.373333 419.02 329.6 507.333333 32.793333 14.466667 57.566667 21.5 75.733333 21.5s42.94-7.033333 75.733334-21.5c200.226667-88.333333 329.6-287.486667 329.6-507.333333V234.666667a21.333333 21.333333 0 0 0-12.666667-19.493334zM533.333333 682.666667a21.333333 21.333333 0 1 1 21.333334-21.333334 21.333333 21.333333 0 0 1-21.333334 21.333334z m21.333334-149.333334a21.333333 21.333333 0 0 1-42.666667 0V320a21.333333 21.333333 0 0 1 42.666667 0z" fill="#d81e06" p-id="3344"></path></svg>
             </div>
         </div>
+    </div>
     </div>
 </template>
 
@@ -25,11 +33,13 @@ export default {
     data() {
         return {
             imgsrc: "",
+            processed_imgsrc : "",
             timer : null,
             service : "车辆检测",
             need_alert : true,
             no_signal : false,
             show_name : false,
+            show_two_imgs : false,
             name : "car"
         }
     },
@@ -43,6 +53,9 @@ export default {
         if(this.service == "image classification") {
             this.show_name = true
         }
+        if(this.service == "image segmentation") {
+            this.show_two_imgs = true
+        }
         this.getImg()
         
         this.timer = setInterval(() => {
@@ -54,6 +67,9 @@ export default {
             this.$http.get(this.api).then((res)=>{
                 var data = eval('(' + res.data + ')')
                 this.imgsrc = "data:image/" + Config.picture_type + ";base64," + data.base64_str
+                if(this.show_two_imgs) {
+                    this.processed_imgsrc = "data:image/" + Config.picture_type + ";base64," + data.processed_base64_str
+                }
                 // 判断是否需要alert
                 this.need_alert = false
                 data.result_list.forEach(element => {

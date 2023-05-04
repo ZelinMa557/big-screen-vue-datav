@@ -15,12 +15,12 @@
         { "name": "", "value": [96.676215,32.924209], "itemStyle": { "color": "#00EEFF" } }
     ],
     "lines" : [
-        { "coords": [[91.137554,29.651469], [87.623027,43.829685]], "cycle" : 1000, "rotation" : 347 },
-        { "coords": [[87.623027,43.829685], [93.520054,42.826864]], "cycle" : 1000, "rotation" : 100},
-        { "coords": [[87.623027,43.829685], [80.272969,41.186603]], "cycle" : 600, "rotation" : 240},
-        { "coords": [[87.623027,43.829685], [88.152998,47.830335]], "cycle" : 800, "rotation" : 5},
-        { "coords": [[91.137554,29.651469], [81.169716,30.412056]], "cycle" : 700, "rotation" : 280},
-        { "coords": [[91.137554,29.651469], [96.676215,32.924209]], "cycle" : 1000, "rotation" : 60}
+        { "coords": [[91.137554,29.651469], [87.623027,43.829685]], "cycle" : 200, "rotation" : 347 },
+        { "coords": [[87.623027,43.829685], [93.520054,42.826864]], "cycle" : 200, "rotation" : 100},
+        { "coords": [[87.623027,43.829685], [80.272969,41.186603]], "cycle" : 80, "rotation" : 240},
+        { "coords": [[87.623027,43.829685], [88.152998,47.830335]], "cycle" : 80, "rotation" : 5},
+        { "coords": [[91.137554,29.651469], [81.169716,30.412056]], "cycle" : 70, "rotation" : 280},
+        { "coords": [[91.137554,29.651469], [96.676215,32.924209]], "cycle" : 300, "rotation" : 60}
     ],
     "big_screen_tasks" : [
         {
@@ -101,27 +101,27 @@
     ],
     "small_screen_tasks" : [
         {
-            "name" : "目标检测1",
+            "name" : "可疑目标检测1",
             "api" : "/get_document?collection=object_detection_test04_min_test_006_topic",
             "default_img" : "https://img1.baidu.com/it/u=2951880093,1614873083&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
-            "name" : "目标检测2",
-            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic",
-            "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
-        },
-        {
-            "name" : "目标检测3",
+            "name" : "可疑目标检测2",
             "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
-            "name" : "目标检测4",
+            "name" : "可疑目标检测3",
             "api" : "/get_document?collection=object_detection_sar_jpg_images_topic",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
         {
-            "name" : "目标检测5",
+            "name" : "车辆识别",
+            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic",
+            "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "船舶识别",
             "api" : "/get_document?collection=object_detection_boat_boat_dataset_topic",
             "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
         },
