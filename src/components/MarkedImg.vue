@@ -6,7 +6,7 @@
         </div>
     </div>
     <div v-else>
-        <div v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative', display: 'flex', 'justify-content': 'center', 'align-items': 'center'}">
+        <div v-bind:style="{'height': height + 'px', 'width' : width + 'px', position : 'relative', display: 'flex', 'justify-content': 'center', 'align-items': 'center', overflow : 'hidden'}">
             <div v-if="this.show_two_imgs">
                 <img v-bind:src="imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '50%'}" onclick="this.test"/>
                 <img v-bind:src="processed_imgsrc" v-bind:style="{'height': height + 'px', 'max-width' : '50%'}" onclick="this.test"/>
@@ -22,6 +22,14 @@
             </div>
         </div>
     </div>
+    <div class="border1"></div>
+    <div class="border2"></div>
+    <div class="border3"></div>
+    <div class="border4"></div>
+    <div class="border5"></div>
+    <div class="border6"></div>
+    <div class="border7"></div>
+    <div class="border8"></div>
     </div>
 </template>
 
@@ -153,5 +161,80 @@ export default {
 
 .nosig {
     margin: 0%;
+}
+
+.box {
+    position: relative;
+}
+.border1 {
+    background-color: rgb(95,95,100);
+    width: 30px;
+    height: 4px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.border2 {
+    background-color: rgb(95,95,100);
+    width: 4px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.border3 {
+    background-color: white;
+    width: 30px;
+    height: 4px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.border4 {
+    background-color: white;
+    width: 4px;
+    height: 30px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.border5 {
+    background-color: white;
+    width: 30px;
+    height: 4px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.border6 {
+    background-color: white;
+    width: 4px;
+    height: 30px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.border7 {
+    background-color: rgb(95,95,100);
+    width: 30px;
+    height: 4px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.border8 {
+    background-color: rgb(95,95,100);
+    width: 4px;
+    height: 30px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
 }
 </style>
