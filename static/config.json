@@ -97,6 +97,61 @@
             "name" : "飞机9",
             "api" : "/get_document?collection=image_segmentation_val_image_topic",
             "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机2",
+            "api" : "/get_document?collection=object_detection_test04_min_test_tv_city_topic",
+            "default_img" : "https://img2.baidu.com/it/u=3432114386,3621660387&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机3",
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机4",
+            "api" : "/get_document?collection=image_classification_test01_flight_data_topic",
+            "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机5",
+            "api" : "/get_document?collection=image_classification_test01_flight_data1_topic",
+            "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
+        },
+        {
+            "name" : "飞机6",
+            "api" : "/get_document?collection=image_classification_test01_flight_data2_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机7",
+            "api" : "/get_document?collection=object_detection_sar_jpg_images_topic",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机8",
+            "api" : "/get_document?collection=object_detection_boat_boat_dataset_topic",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机9",
+            "api" : "/get_document?collection=image_segmentation_val_image_topic",
+            "default_img" : "https://img1.baidu.com/it/u=487106086,427520542&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"
+        },
+        {
+            "name" : "飞机3",
+            "api" : "/get_document?collection=object_detection_test04_min_test_follow_vehicle_topic",
+            "default_img" : "https://img2.baidu.com/it/u=2573628009,2989676462&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机4",
+            "api" : "/get_document?collection=image_classification_test01_flight_data_topic",
+            "default_img" : "https://img2.baidu.com/it/u=557768065,1385483726&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400"
+        },
+        {
+            "name" : "飞机5",
+            "api" : "/get_document?collection=image_classification_test01_flight_data1_topic",
+            "default_img" : "https://img0.baidu.com/it/u=985987271,4238775717&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=326"
         }
     ],
     "small_screen_tasks" : [
